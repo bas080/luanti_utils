@@ -25,7 +25,7 @@ See [Luanti Utils Documentation][luanti_utils_doc].
 See [LICENSE.txt][LICENSE] file
 
 [dofile]:https://bas080.github.io/luanti_utils/modules/luanti_utils.html#dofile
-[LICENSE]:./LICENSE.txt
+[LICENSE]:https://github.com/bas080/luanti_utils/blob/master/LICENSE.txt
 [Luanti]:https://www.luanti.org/
 [luanti_utils]:https://bas080.github.io/luanti_utils/index.html
 [luanti_utils_doc]:https://bas080.github.io/luanti_utils/index.html
