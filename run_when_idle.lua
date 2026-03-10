@@ -15,7 +15,7 @@
 local M = {}
 
 
-local make_queue = luanti_utils.dofile('make_queue.lua')
+local Queue = luanti_utils.dofile('queue.lua')
 
 local TARGET_STEP = 0.1
 local EMA_ALPHA = 0.1
@@ -26,7 +26,7 @@ local AVG_JOB_TIME = 0.001
 local avg_dtime = TARGET_STEP
 local max_fns = 1000000
 
-local queue = make_queue(max_fns)
+local queue = Queue(max_fns)
 
 --- Indicates whether the server currently has spare time.
 --
