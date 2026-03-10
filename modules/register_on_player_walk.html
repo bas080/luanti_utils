@@ -31,10 +31,6 @@
   <li><a href="../index.html">Index</a></li>
 </ul>
 
-<h2>Contents</h2>
-<ul>
-<li><a href="#Functions">Functions</a></li>
-</ul>
 
 
 <h2>Modules</h2>
@@ -46,8 +42,8 @@
   <li><a href="../modules/node_on_walk.html">node_on_walk</a></li>
   <li><a href="../modules/persistent_queue.html">persistent_queue</a></li>
   <li><a href="../modules/queue.html">queue</a></li>
-  <li><a href="../modules/register_on_player_walk.html">register_on_player_walk</a></li>
-  <li><strong>run_when_idle_scheduler</strong></li>
+  <li><strong>register_on_player_walk</strong></li>
+  <li><a href="../modules/run_when_idle_scheduler.html">run_when_idle_scheduler</a></li>
   <li><a href="../modules/task_queue.html">task_queue</a></li>
 </ul>
 <h2>Topics</h2>
@@ -59,58 +55,19 @@
 
 <div id="content">
 
-<h1>Module <code>run_when_idle_scheduler</code></h1>
-<p>Idle-time runner for a Task_queue.</p>
-<p> Gradually executes queued jobs only when the server has spare time.</p>
+<h1>Module <code>register_on_player_walk</code></h1>
+<p>Node extension to support global player walk callbacks.</p>
+<p> Modules can register a callback for any player movement:
+ minetest.register<em>on</em>player_walk(function(pos, player, node) end)</p>
+
+<p> Callback parameters:</p>
 
 
-<h2><a href="#Functions">Functions</a></h2>
-<table class="function_list">
-	<tr>
-	<td class="name" nowrap><a href="#returns...">returns... (task_queue)</a></td>
-	<td class="summary">
-
-</td>
-	</tr>
-</table>
 
 <br/>
 <br/>
 
 
-    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
-
-    <dl class="function">
-    <dt>
-    <a name = "returns..."></a>
-    <strong>returns... (task_queue)</strong>
-    </dt>
-    <dd>
-
-
-
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">task_queue</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-         Task<em>queue instance (from Task</em>queue(queue))
-        </li>
-    </ul>
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-        Scheduler API with <code>is_idle</code>, <code>is_busy</code>, and <code>size</code> fields
-    </ol>
-
-
-
-
-</dd>
-</dl>
 
 
 </div> <!-- id="content" -->
