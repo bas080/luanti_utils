@@ -20,6 +20,10 @@ See [Luanti Utils Documentation][luanti_utils_doc].
 
 > Docs are generated using [LDoc][LDoc] comments.
 
+## Experimental
+
+There is an `experimental` branch. These APIs are suject to change. 
+
 ## License
 
 See [LICENSE.txt][LICENSE] file
