@@ -1,4 +1,9 @@
 {
+   "name": "luanti_utils",
+   "title": "luanti_utils",
+   "short_description": "High level utilities for better mods.",
+   "dev_state": "ACTIVELY_DEVELOPED",
+   "type": "MOD",
    "$author" : "bas080",
    "license" : "LGPL-2.1-only",
    "media_license" : "LGPL-2.1-only"
