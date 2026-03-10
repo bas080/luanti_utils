@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>luanti_utils API</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>luanti_utils</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Fields">Fields</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/emerge_node.html">emerge_node</a></li>
+  <li><a href="../modules/extend_group.html">extend_group</a></li>
+  <li><a href="../modules/extend_item.html">extend_item</a></li>
+  <li><a href="../modules/luanti_utils.html">luanti_utils</a></li>
+  <li><strong>run_when_idle</strong></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>run_when_idle</code></h1>
+<p>Idle-time job scheduler for Luanti / Minetest.</p>
+<p> Runs queued work only when the server step has spare time.
+ The module estimates spare time from <code>globalstep</code> dtime using
+ an exponential moving average and executes queued jobs gradually
+ within the available budget.</p>
+
+<p> This allows expensive or batch work to be spread across many
+ server steps without causing lag spikes.</p>
+
+<p> In addition to the queued execution API, the module exposes a
+ fast synchronous hint (<a href="../modules/run_when_idle.html#is_idle">is_idle</a>) that allows callers to decide
+ whether to run work immediately without using the queue.</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#run">run (fn)</a></td>
+	<td class="summary">Queue a function to run when the server has spare time.</td>
+	</tr>
+</table>
+<h2><a href="#Fields">Fields</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#is_idle">is_idle</a></td>
+	<td class="summary">Indicates whether the server currently has spare time.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#is_busy">is_busy</a></td>
+	<td class="summary">Opposite of <a href="../modules/run_when_idle.html#is_idle">is_idle</a>.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "run"></a>
+    <strong>run (fn)</strong>
+    </dt>
+    <dd>
+    Queue a function to run when the server has spare time. </p>
+
+<p> The function will be executed during a future <code>globalstep</code>
+ when the scheduler determines that there is enough spare
+ time available in the current step.</p>
+
+<p> Jobs are processed FIFO and executed gradually based on
+ an estimated per-job runtime (<code>AVG_JOB_TIME</code>).</p>
+
+<p> If the queue is full the job is dropped and an error is logged.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">fn</span>
+            <span class="types"><span class="type">function</span></span>
+         Function to execute later during idle time.
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">run_when_idle.<span class="function-name">run</span>(<span class="keyword">function</span>()
+    <span class="function-name">do_expensive_work</span>()
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Fields"></a>Fields</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "is_idle"></a>
+    <strong>is_idle</strong>
+    </dt>
+    <dd>
+    Indicates whether the server currently has spare time. </p>
+
+<p> This flag is updated every <code>globalstep</code> and represents a quick
+ estimate of whether the server step still has execution budget.</p>
+
+<p> It can be used for <strong>synchronous checks</strong> when the caller wants
+ to opportunistically perform work immediately instead of placing
+ it in the queue.</p>
+
+<p> This avoids queue overhead and is useful for very small tasks
+ or logic already running in a hot path.
+
+
+    <ul>
+        <li><span class="parameter">is_idle</span>
+            <span class="types"><span class="type">boolean</span></span>
+         True if spare time is currently available.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "is_busy"></a>
+    <strong>is_busy</strong>
+    </dt>
+    <dd>
+    Opposite of <a href="../modules/run_when_idle.html#is_idle">is_idle</a>. </p>
+
+<p> Provided for readability in conditional logic.
+
+
+    <ul>
+        <li><span class="parameter">is_busy</span>
+            <span class="types"><span class="type">boolean</span></span>
+         True when the server step is considered busy.
+        </li>
+    </ul>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">if</span> run_when_idle.is_idle <span class="keyword">then</span>
+    <span class="function-name">do_small_job</span>()
+<span class="keyword">else</span>
+    run_when_idle.<span class="function-name">run</span>(do_small_job)
+<span class="keyword">end</span></pre>
+    </ul>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2026-03-10 12:55:30 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
