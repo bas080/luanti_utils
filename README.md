@@ -2,11 +2,15 @@
 
 High level [Luanti][Luanti] lua modding utilities that will bring your mods to the next level.
 
+## Installation
+
+1. Get the luanti_utils in your mod folder by downloading it from the Luanti mods UI.
+2. Add luanti_utils as a dependency in your mod.
+3. Read the docs to get started.
+
 ## Documentation
 
-Add [luanti_utils][luanti_utils] as a dependency by either cloning the project into your mods folder or by downloading it from content db.
-
-You then require the utils you want.
+You start by aquiring a module. See [luanti_utils.dofile][dofile]
 
 ```lua
 local util = luanti_utils.dofile('<luanti_util>.lua')
@@ -14,12 +18,13 @@ local util = luanti_utils.dofile('<luanti_util>.lua')
 
 See [Luanti Utils Documentation][luanti_utils_doc].
 
-> The util files themselves have [LDoc][LDoc] comments. These are used to generate any documentation.
+> Docs are generated using [LDoc][LDoc] comments.
 
 ## License
 
 See [LICENSE.txt][LICENSE] file
 
+[dofile]:https://bas080.github.io/luanti_utils/modules/luanti_utils.html#dofile
 [LICENSE]:./LICENSE.txt
 [Luanti]:https://www.luanti.org/
 [luanti_utils]:https://bas080.github.io/luanti_utils/index.html
