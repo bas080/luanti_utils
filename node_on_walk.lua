@@ -1,4 +1,5 @@
 --- Node extension to support walk-related callbacks based on player position.
+-- @module node_on_walk
 --
 -- To enable it, just do:
 -- ```lua

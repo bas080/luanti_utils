@@ -1,3 +1,10 @@
+--- Run tasks when the server is idle (spread work across globalsteps).
+--
+-- This module provides a simple mechanism to queue work and execute it only
+-- when the globalstep has spare time, helping avoid lag spikes.
+--
+-- @module on_server_idle
+
 local queue = luanti_utils.dofile('queue.lua')
 
 local TARGET_STEP = 0.1
@@ -34,10 +41,14 @@ core.register_globalstep(function(dtime)
     end
 end)
 
--- TODO: Add docs
+--- Schedule a task to run when the server is idle.
+--
+-- The provided function will be invoked in a later globalstep, depending on
+-- how much spare time is available.
+--
+-- @tparam function task_fn Function receiving `dtime` as the first argument.
 local function on_server_idle(task_fn)
     queue.push(task_fn)
-    
 end
 
 return on_server_idle

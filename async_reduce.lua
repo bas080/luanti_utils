@@ -1,15 +1,15 @@
---- Reduce a table asynchronously using idle callbacks.
+--- Asynchronous reduction over a table using idle callbacks.
 --
--- This helper uses `on_idle.lua` to process each element over multiple frames,
--- preventing long-running loops from causing lag.
+-- This helper iterates over a table by scheduling each step on idle frames.
+-- It is useful for processing large tables without causing lag.
 --
--- @module on_server_idle_reduce
+-- @module async_reduce
 
 local on_idle = luanti_utils.dofile('on_idle.lua')
 
---- Asynchronously reduce a table.
+--- Reduce a table value asynchronously.
 --
--- @tparam table tbl Table to reduce.
+-- @tparam table tbl Table to iterate over.
 -- @tparam function fn Reduction function `(acc, item) -> acc`.
 -- @param acc Initial accumulator value.
 -- @tparam[opt] function done Optional callback called with the final accumulator.
