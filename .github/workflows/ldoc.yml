@@ -12,17 +12,26 @@ jobs:
       # 1. Checkout code
       - uses: actions/checkout@v3
 
-      # 2. Install Lua and LuaRocks
+      # 2. Cache LuaRocks state to speed up repeated builds
+      - name: Cache LuaRocks
+        uses: actions/cache@v4
+        with:
+          path: ~/.luarocks
+          key: ${{ runner.os }}-luarocks
+          restore-keys: |
+            ${{ runner.os }}-luarocks
+
+      # 3. Install Lua and LuaRocks
       - name: Install Lua and LuaRocks
         run: |
           sudo apt-get update
           sudo apt-get install -y lua5.4 luarocks
 
-      # 3. Install LDoc locally
+      # 4. Install LDoc locally
       - name: Install LDoc
         run: luarocks install ldoc --local
           
-      # 4. Build docs
+      # 5. Build docs
       - name: Build LDoc
         run: eval "$(luarocks path --bin)" && ldoc .
 
