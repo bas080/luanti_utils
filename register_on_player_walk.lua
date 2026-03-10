@@ -33,9 +33,9 @@ minetest.register_globalstep(function(dtime)
     for _, player in ipairs(minetest.get_connected_players()) do
         local pos = player:get_pos()
         local current = {
-            x = math.floor(pos.x),
+            x = math.floor(pos.x + 0.5),
             y = math.floor(pos.y),
-            z = math.floor(pos.z),
+            z = math.floor(pos.z + 0.5),
         }
 
         local last = player_last_pos[player]
