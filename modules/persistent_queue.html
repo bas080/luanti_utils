@@ -43,8 +43,8 @@
   <li><a href="../modules/extend_group.html">extend_group</a></li>
   <li><a href="../modules/extend_item.html">extend_item</a></li>
   <li><a href="../modules/luanti_utils.html">luanti_utils</a></li>
-  <li><a href="../modules/persistent_queue.html">persistent_queue</a></li>
-  <li><strong>queue</strong></li>
+  <li><strong>persistent_queue</strong></li>
+  <li><a href="../modules/queue.html">queue</a></li>
   <li><a href="../modules/run_when_idle.html">run_when_idle</a></li>
 </ul>
 
@@ -52,9 +52,9 @@
 
 <div id="content">
 
-<h1>Module <code>queue</code></h1>
-<p>Simple FIFO queue implementation.</p>
-<p> Provides push/pop operations with optional maximum size.</p>
+<h1>Module <code>persistent_queue</code></h1>
+<p>Persistent FIFO queue backed by Luanti ModStorage.</p>
+<p> Queue contents must be serializable with core.serialize.</p>
 
 
 <h2><a href="#Functions">Functions</a></h2>
@@ -69,11 +69,11 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#size">size ()</a></td>
-	<td class="summary">Get the number of elements currently in the queue.</td>
+	<td class="summary">Get queue size.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#is_empty">is_empty ()</a></td>
-	<td class="summary">Check whether the queue is empty.</td>
+	<td class="summary">Check if queue is empty.</td>
 	</tr>
 </table>
 
@@ -95,7 +95,7 @@
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">v</span>
-         Value to add.
+         Serializable value.
         </li>
     </ul>
 
@@ -103,7 +103,7 @@
     <ol>
 
            <span class="types"><span class="type">boolean</span></span>
-        True if the value was added, false if the queue is full.
+        True if inserted, false if queue full.
     </ol>
 
 
@@ -123,7 +123,7 @@
     <ol>
 
            <span class="types"><span class="type">any</span></span>
-        The next value, or nil if the queue is empty.
+        Value or nil if empty.
     </ol>
 
 
@@ -135,7 +135,7 @@
     <strong>size ()</strong>
     </dt>
     <dd>
-    Get the number of elements currently in the queue.
+    Get queue size.
 
 
 
@@ -157,7 +157,7 @@
     <strong>is_empty ()</strong>
     </dt>
     <dd>
-    Check whether the queue is empty.
+    Check if queue is empty.
 
 
 
