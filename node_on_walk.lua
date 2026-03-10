@@ -19,8 +19,8 @@ local register_on_player_walk = luanti_utils.dofile('register_on_player_walk.lua
 
 register_on_player_walk(function(pos, prev, player)
     -- Node underneath instead
-    pos = vector.add(pos, {x=0,y=-1,z=0})
-    prev = vector.add(pos, {x=0,y=-1,z=0})
+    pos = vector.add(pos, {x=0,y=-0.1,z=0})
+    prev = vector.add(pos, {x=0,y=-0.1,z=0})
 
     -- Leave callback
     if prev then
