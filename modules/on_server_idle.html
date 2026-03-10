@@ -36,12 +36,12 @@
 <h2>Modules</h2>
 <ul class="nowrap">
   <li><a href="../modules/debounce.html">debounce</a></li>
-  <li><strong>emerge_node</strong></li>
+  <li><a href="../modules/emerge_node.html">emerge_node</a></li>
   <li><a href="../modules/extend_group.html">extend_group</a></li>
   <li><a href="../modules/extend_item.html">extend_item</a></li>
   <li><a href="../modules/luanti_utils.html">luanti_utils</a></li>
   <li><a href="../modules/node_on_walk.html">node_on_walk</a></li>
-  <li><a href="../modules/on_server_idle.html">on_server_idle</a></li>
+  <li><strong>on_server_idle</strong></li>
   <li><a href="../modules/on_server_idle_each.html">on_server_idle_each</a></li>
   <li><a href="../modules/on_server_idle_filter.html">on_server_idle_filter</a></li>
   <li><a href="../modules/on_server_idle_map.html">on_server_idle_map</a></li>
@@ -59,15 +59,10 @@
 
 <div id="content">
 
-<h1>Module <code>emerge_node</code></h1>
-<p>Ensure a node is loaded and call a callback with it.</p>
-<p> This function attempts to get the node at <code>pos</code>. If the node is not
- loaded yet, it requests the server to emerge the area containing <code>pos</code>.
- Once the node becomes available, the provided callback is called with
- the node and its position.</p>
-
-<p> The callback is always called asynchronously if the node needs to be
- emerged. Otherwise, it may be called immediately.</p>
+<h1>Module <code>on_server_idle</code></h1>
+<p>Run tasks when the server is idle (spread work across globalsteps).</p>
+<p> This module provides a simple mechanism to queue work and execute it only
+ when the globalstep has spare time, helping avoid lag spikes.</p>
 
 
 
