@@ -4,7 +4,7 @@
 --
 -- @module on_server_idle_each
 
-local reduce = luanti_utils.dofile('async_reduce.lua')
+local reduce = luanti_utils.dofile('on_server_idle_reduce.lua')
 
 --- Iterate over each item in a table.
 --

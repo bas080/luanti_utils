@@ -1,11 +1,11 @@
 --- Reduce a table asynchronously using idle callbacks.
 --
--- This helper uses `on_idle.lua` to process each element over multiple frames,
+-- This helper uses `on_server_idle.lua` to process each element over multiple frames,
 -- preventing long-running loops from causing lag.
 --
 -- @module on_server_idle_reduce
 
-local on_idle = luanti_utils.dofile('on_idle.lua')
+local on_server_idle = luanti_utils.dofile('on_server_idle.lua')
 
 --- Asynchronously reduce a table.
 --
@@ -28,7 +28,7 @@ local function reduce(tbl, fn, acc, done)
         end
         local item = tbl[i]
         i = i + 1
-        on_idle(function()
+        on_server_idle(function()
             if not running then return end
             acc = fn(acc, item)
             step()

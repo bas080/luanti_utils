@@ -4,7 +4,7 @@
 --
 -- @module on_server_idle_map
 
-local reduce = luanti_utils.dofile('async_reduce.lua')
+local reduce = luanti_utils.dofile('on_server_idle_reduce.lua')
 
 --- Map each value in `tbl` through `fn`.
 --
