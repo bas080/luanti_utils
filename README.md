@@ -1,14 +1,12 @@
 # luanti_utils
 
-Utils that might can make it easier for you to make mods.
-
-Each util can be required seperatly into your mod. It does require you to depend on this mod.
+High level [Luanti][Luanti] lua modding utilities that will bring your mods to the next level.
 
 ## Documentation
 
-Add luanti_utils as a dependency.
+Add [luanti_utils][luanti_utils] as a dependency by either cloning the project into your mods folder or by downloading it from content db.
 
-Then you can require only the utils you want. The others won't be sourced and parsed.
+You then require the utils you want.
 
 ```lua
 local util = luanti_utils.dofile('<luanti_util>.lua')
@@ -20,7 +18,10 @@ See [Luanti Utils Documentation][luanti_utils_doc].
 
 ## License
 
-TBD
+See [LICENSE.txt][LICENSE] file
 
+[LICENSE]:./LICENSE.txt
+[Luanti]:https://www.luanti.org/
+[luanti_utils]:https://bas080.github.io/luanti_utils/index.html
 [luanti_utils_doc]:https://bas080.github.io/luanti_utils/index.html
 [LDoc]:https://stevedonovan.github.io/ldoc/
