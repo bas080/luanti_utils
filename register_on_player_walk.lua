@@ -47,6 +47,8 @@ minetest.register_globalstep(function(dtime)
 
         -- Call all registered global walk callbacks
         for _, fn in ipairs(player_walk_callbacks) do
+            -- Consider cloning these to prevent player from mutating?
+            -- If for performance reasons I do not do that then I should document that.
             fn(current, last, player)
         end
 
