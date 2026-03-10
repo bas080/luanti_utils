@@ -21,13 +21,13 @@
 -- emerge_node({x=0, y=10, z=0}, function(node, pos)
 --     print("Node at", pos.x, pos.y, pos.z, "is", node.name)
 -- end)
-local when_idle = luanti_utils.dofile('run_when_idle.lua')
+local on_server_idle = luanti_utils.dofile('on_server_idle.lua')
 
 local function emerge_node(pos, cb)
     local existing = minetest.get_node_or_nil(pos)
 
     if not existing then
-        when_idle.run(function()
+        on_server_idle(function()
             core.emerge_area(pos, pos, function(blockpos, action, calls_remaining, param)
                 if calls_remaining == 0 then
                     cb(minetest.get_node(pos), pos)

@@ -1,14 +1,22 @@
 --- Node extension to support walk-related callbacks based on player position.
+-- @module node_on_walk
+--
+-- To enable it, just do:
+-- ```lua
+-- luanti_utils.dofile("node_on_walk.lua")
+-- ```
 --
 -- Nodes can define:
 -- * `on_walk_enter(pos, player, node)` – called when a player enters a new node position
 -- * `on_walk_leave(pos, player, node)` – called when a player leaves a previous node position
 --
 -- Example usage:
+-- ```lua
 -- core.register_node("mymod:walkable_node", {
 --     on_walk_enter = function(pos, player, node) end,
 --     on_walk_leave = function(pos, player, node) end,
 -- })
+-- ```
 --
 -- Callback parameters:
 -- @param pos Table: position of the node under the player.
