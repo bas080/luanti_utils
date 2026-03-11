@@ -1,5 +1,3 @@
-local extend_function = luanti_utils.dofile('extend_function.lua')
-
 -- Weak table to track already-migrated inventories
 local migrated = setmetatable({}, { __mode = "k" })
 
@@ -27,15 +25,18 @@ local function do_inventory_migration(inv)
 	end
 end
 
-core.get_meta = extend_function(core.get_meta, function(fn, pos, ...)
-	local meta = fn(pos, ...)
+local old_get_meta = core.get_meta
+core.get_meta = function(...)
+	local meta = old_get_meta(...)
 	local inv = meta:get_inventory()
 	do_inventory_migration(inv)
 	return meta
-end)
+end
 
 -- Patch player inventories on join
 core.register_on_joinplayer(function(player)
 	local inv = player:get_inventory()
 	do_inventory_migration(inv)
 end)
+
+return migrate_inventory
