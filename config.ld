@@ -5,3 +5,4 @@ file    = { "." }
 dir     = "doc"
 format  = "markdown"
 readme  = "./README.md"
+favicon = "favicon.ico"
