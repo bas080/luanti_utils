@@ -28,7 +28,7 @@ local function reduce(tbl, fn, acc, done)
         end
         local item = tbl[i]
         i = i + 1
-        on_server_idle(function()
+        on_server_idle.run(function()
             if not running then return end
             acc = fn(acc, item)
             step()
