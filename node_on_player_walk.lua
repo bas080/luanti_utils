@@ -1,20 +1,20 @@
 --- Node extension to support walk-related callbacks based on player position.
--- @module node_on_walk
+-- @module node_on_player_walk
 --
 -- To enable it, just do:
 -- ```lua
--- luanti_utils.dofile("node_on_walk.lua")
+-- luanti_utils.dofile("node_on_player_walk.lua")
 -- ```
 --
 -- Nodes can define:
--- * `on_walk_enter(pos, player, node)` – called when a player enters a new node position
--- * `on_walk_leave(pos, player, node)` – called when a player leaves a previous node position
+-- * `on_player_walk_enter(pos, player, node)` – called when a player enters a new node position
+-- * `on_player_walk_leave(pos, player, node)` – called when a player leaves a previous node position
 --
 -- Example usage:
 -- ```lua
 -- core.register_node("mymod:walkable_node", {
---     on_walk_enter = function(pos, player, node) end,
---     on_walk_leave = function(pos, player, node) end,
+--     on_player_walk_enter = function(pos, player, node) end,
+--     on_player_walk_leave = function(pos, player, node) end,
 -- })
 -- ```
 --
@@ -34,8 +34,8 @@ register_on_player_walk(function(pos, prev, player)
     if prev then
         local prev_node = minetest.get_node(prev)
         local prev_def = minetest.registered_nodes[prev_node.name]
-        if prev_def and prev_def.on_walk_leave then
-            prev_def.on_walk_leave(prev, player, prev_node)
+        if prev_def and prev_def.on_player_walk_leave then
+            prev_def.on_player_walk_leave(prev, player, prev_node)
         end
     end
 
@@ -43,8 +43,8 @@ register_on_player_walk(function(pos, prev, player)
     local node = minetest.get_node(pos)
     if node and node.name then
         local node_def = minetest.registered_nodes[node.name]
-        if node_def and node_def.on_walk_enter then
-            node_def.on_walk_enter(pos, player, node)
+        if node_def and node_def.on_player_walk_enter then
+            node_def.on_player_walk_enter(pos, player, node)
         end
     end
 end)
