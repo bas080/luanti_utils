@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.1
+
+- Prevented an unnecessary `nil` check when comparing player positions.
+- Avoided potential errors when a player moves for the first time after joining.
+
 ## 0.0.0
 
 Initial release.
