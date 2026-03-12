@@ -38,10 +38,10 @@ minetest.register_globalstep(function(dtime)
             z = math.floor(pos.z + 0.5),
         }
 
-        local last = player_last_pos[player]
+        local last = player_last_pos[player] or pos
 
         -- Skip if player hasn't moved to a new node
-        if last and vector.equals(last, current) then
+        if vector.equals(last, current) then
             goto continue
         end
 
