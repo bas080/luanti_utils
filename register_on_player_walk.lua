@@ -1,5 +1,5 @@
 --- Global player walk callbacks
--- 
+--
 -- This module allows other modules to register callbacks that run
 -- whenever a player moves from one node to another.
 --
@@ -23,7 +23,7 @@ local player_last_pos = {}
 --   * `pos` Table: the current node position `{x=number, y=number, z=number}`
 --   * `prev_pos` Table or nil: the previous node position
 --   * `player` ObjectRef: the player walking
-function register_on_player_walk(fn)
+local function register_on_player_walk(fn)
     assert(type(fn) == "function", "register_on_player_walk expects a function")
     table.insert(player_walk_callbacks, fn)
 end

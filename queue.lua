@@ -26,7 +26,7 @@ local function Queue(max_size)
         size = size + 1
         return true
     end
-    
+
     --- Pop the next value from the queue.
     -- @treturn any The next value, or nil if the queue is empty.
     function M.pop()

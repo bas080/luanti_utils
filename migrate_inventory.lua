@@ -27,7 +27,7 @@ local function do_inventory_migration(inv)
 	end
 end
 
-core.get_meta = extend_function(core.get_meta, function(get_meta, ...)
+core.get_meta = extend_function(core.get_meta, function(get_meta, ...) -- luacheck: ignore 122
 	local meta = get_meta(...)
 	local inv = meta:get_inventory()
 	do_inventory_migration(inv)

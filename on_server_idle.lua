@@ -12,7 +12,6 @@
 local M = {}
 
 local Queue = luanti_utils.dofile('queue.lua')
-local noop = luanti_utils.dofile('noop.lua')
 
 local TARGET_STEP = 0.1
 local EMA_ALPHA = 0.1
