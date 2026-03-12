@@ -9,8 +9,10 @@
 --
 -- @module on_server_idle
 
-local queue = luanti_utils.dofile('queue.lua')
-local noop = luanti_utils.dofile('noop')
+local M = {}
+
+local Queue = luanti_utils.dofile('queue.lua')
+local noop = luanti_utils.dofile('noop.lua')
 
 local TARGET_STEP = 0.1
 local EMA_ALPHA = 0.1
@@ -20,6 +22,7 @@ local AVG_JOB_TIME = 0.001
 
 local avg_dtime = TARGET_STEP
 
+local queue = Queue()
 
 core.register_globalstep(function(dtime)
     avg_dtime = avg_dtime + EMA_ALPHA * (dtime - avg_dtime)
@@ -31,15 +34,22 @@ core.register_globalstep(function(dtime)
     local spare = TARGET_STEP - avg_dtime
     local budget = (spare - SAFETY_MARGIN) * SPARE_FRACTION
 
-    on_server_idle.is_idle = budget > 0
-    on_server_idle.is_busy = not on_server_idle.is_idle
+    M.is_idle = budget > 0
+    M.is_busy = not M.is_idle
 
-    if on_server_idle.is_busy then return end
+    if M.is_busy then return end
 
     local jobs_to_run = math.max(1, math.floor(budget / AVG_JOB_TIME))
 
     for _ = 1, jobs_to_run do
-        queue.pop()(dtime)
+        -- Could have no jobs
+        local fn = queue.pop()
+
+        if fn then
+            fn(dtime)
+        else
+            break
+        end
     end
 end)
 
@@ -50,10 +60,11 @@ end)
 --
 -- @tparam function fn Function to wrap.
 -- @treturn function Wrapped function that schedules `fn` on idle.
-local function on_server_idle(fn)
+function M.wrap(fn)
     return function(...)
-        on_server_idle.run(function()
-            fn(...)
+        local args = {...}
+        M.run(function()
+            fn(table.unpack(args))
         end)
     end
 end
@@ -64,7 +75,7 @@ end
 -- how much spare time is available.
 --
 -- @tparam function task_fn Function receiving `dtime` as the first argument.
-function on_server_idle.run(task_fn)
+function M.run(task_fn)
     queue.push(task_fn)
 end
 
@@ -72,7 +83,7 @@ end
 -- True when the idle queue has budget to run tasks.
 -- @tfield bool is_idle
 -- @tfield bool is_busy
-on_server_idle.is_idle = true
-on_server_idle.is_busy = false
+M.is_idle = true
+M.is_busy = false
 
-return on_server_idle
+return M
