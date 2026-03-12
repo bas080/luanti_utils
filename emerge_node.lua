@@ -27,7 +27,7 @@ local function emerge_node(pos, cb)
     local existing = minetest.get_node_or_nil(pos)
 
     if not existing then
-        on_server_idle(function()
+        on_server_idle.run(function()
             core.emerge_area(pos, pos, function(blockpos, action, calls_remaining, param)
                 if calls_remaining == 0 then
                     cb(minetest.get_node(pos), pos)
