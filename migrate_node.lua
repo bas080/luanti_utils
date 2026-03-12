@@ -1,7 +1,7 @@
 function migrate_node(name, nodenames, action)
   core.register_lbm({
     name = name,
-    run_at_every_load = true, -- TODO: Should only run during dev.
+    run_at_every_load = false,
     nodenames = nodenames,
     action = action,
   })
