@@ -5,6 +5,7 @@
    "dev_state": "ACTIVELY_DEVELOPED",
    "type": "MOD",
    "$author" : "bas080",
+   "$version": "0.0.0",
    "license" : "LGPL-2.1-only",
    "media_license" : "LGPL-2.1-only"
 }
