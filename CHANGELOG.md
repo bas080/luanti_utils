@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.2
+
+- Add modify_texture util.
+- Add register_copy_node util to adopt def of other nodes.
+- Add table_merge util.
+
 ## 0.0.1
 
 - Prevented an unnecessary `nil` check when comparing player positions.
