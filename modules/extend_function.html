@@ -35,7 +35,6 @@
 <h2>Contents</h2>
 <ul>
 <li><a href="#Functions">Functions</a></li>
-<li><a href="#Tables">Tables</a></li>
 </ul>
 
 
@@ -43,10 +42,10 @@
 <ul class="nowrap">
   <li><a href="../modules/debounce.html">debounce</a></li>
   <li><a href="../modules/emerge_node.html">emerge_node</a></li>
-  <li><a href="../modules/extend_function.html">extend_function</a></li>
+  <li><strong>extend_function</strong></li>
   <li><a href="../modules/extend_group.html">extend_group</a></li>
   <li><a href="../modules/extend_item.html">extend_item</a></li>
-  <li><strong>luanti_utils</strong></li>
+  <li><a href="../modules/luanti_utils.html">luanti_utils</a></li>
   <li><a href="../modules/node_on_player_walk.html">node_on_player_walk</a></li>
   <li><a href="../modules/on_server_idle.html">on_server_idle</a></li>
   <li><a href="../modules/on_server_idle_each.html">on_server_idle_each</a></li>
@@ -67,23 +66,36 @@
 
 <div id="content">
 
-<h1>Module <code>luanti_utils</code></h1>
-<p>Utility functions for the <a href="../modules/luanti_utils.html#">luanti_utils</a> module.</p>
-<p> Provides helpers for loading files relative to the current mod path.</p>
+<h1>Module <code>extend_function</code></h1>
+<p>Takes the original function and a callback that receives the old function and arguments.</p>
+<p> You can decide if you want to call the old function and in which order to do operations.</p>
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">local function add (a, b)
+  a + b
+end
+
+local multiplyAWithTwoAndAdd = extend_function(add, function(og, a, b) og(a * 2, b) end)
+</pre>
+    </ul>
 
 
 <h2><a href="#Functions">Functions</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#dofile">dofile (module)</a></td>
-	<td class="summary">Load a Lua file from the current mod directory.</td>
+	<td class="name" nowrap><a href="#returns...">returns... (original_fn, extender_fn)</a></td>
+	<td class="summary">
+
+</td>
 	</tr>
-</table>
-<h2><a href="#Tables">Tables</a></h2>
-<table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#luanti_utils">luanti_utils</a></td>
-	<td class="summary">The module table</td>
+	<td class="name" nowrap><a href="#extender_fn">extender_fn ()</a></td>
+	<td class="summary">Extender function takes the original function as first argument
+  followed by the arguments the original function takes.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#extended_fn">extended_fn ()</a></td>
+	<td class="summary">The wrapper that takes same args as the original fn</td>
 	</tr>
 </table>
 
@@ -95,54 +107,73 @@
 
     <dl class="function">
     <dt>
-    <a name = "dofile"></a>
-    <strong>dofile (module)</strong>
+    <a name = "returns..."></a>
+    <strong>returns... (original_fn, extender_fn)</strong>
     </dt>
     <dd>
-    Load a Lua file from the current mod directory. </p>
 
-<p> This is a wrapper around <a href="../modules/luanti_utils.html#dofile">dofile</a> that automatically prepends the
- mod's path, so you can load other files in your mod without
- specifying the full path manually.
+
+
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">module</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
-         The filename of the Lua module to load (relative to the mod folder)
+        <li><span class="parameter">original_fn</span>
+            <span class="types"><span class="type">function</span></span>
+         The function being extended
+        </li>
+        <li><span class="parameter">extender_fn</span>
+            <span class="types"><span class="type">function</span></span>
+         The function that extends.
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><span class="type">any</span></span>
-        The return value of the loaded module
+           <span class="types"><span class="type">function</span></span>
+        extended_fn Takes the same arguments as original function
     </ol>
 
 
 
-    <h3>Usage:</h3>
-    <ul>
-        <pre class="example"><span class="keyword">local</span> extend_item = luanti_utils.<span class="global">dofile</span>(<span class="string">"extend_item.lua"</span>)
-<span class="keyword">local</span> extend_group = luanti_utils.<span class="global">dofile</span>(<span class="string">"extend_group.lua"</span>)</pre>
-    </ul>
 
 </dd>
-</dl>
-    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
-
-    <dl class="function">
     <dt>
-    <a name = "luanti_utils"></a>
-    <strong>luanti_utils</strong>
+    <a name = "extender_fn"></a>
+    <strong>extender_fn ()</strong>
     </dt>
     <dd>
-    The module table
+    Extender function takes the original function as first argument
+  followed by the arguments the original function takes.
 
 
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">any</span></span>
+        Usually similar to the original_fn
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "extended_fn"></a>
+    <strong>extended_fn ()</strong>
+    </dt>
+    <dd>
+    The wrapper that takes same args as the original fn
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Equal to the return of the extender_fn
+    </ol>
 
 
 
