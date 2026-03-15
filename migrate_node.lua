@@ -2,7 +2,7 @@
 --
 -- This does not perform migrations on world start but on block load.
 -- 
--- @module migrate_node
+-- @module migrate_node.lua
 -- @usage
 -- migrate_node("my_migration", {"vines:old"}, function() end)
 --

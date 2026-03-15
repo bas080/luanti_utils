@@ -1,12 +1,12 @@
---- Utility functions for the `luanti_utils` module.
+--- Luanti init.lua for `luanti_utils`.
 --
--- Provides helpers for loading files relative to the current mod path.
+-- Defines a global named luanti_utils with the following:
 --
--- @module luanti_utils
+-- @module init.lua
 
 local modpath = core.get_modpath(core.get_current_modname())
 
---- The module table
+--- The global luanti_utils table.
 luanti_utils = {}
 
 --- Load a Lua file from the current mod directory.
@@ -15,7 +15,7 @@ luanti_utils = {}
 -- mod's path, so you can load other files in your mod without
 -- specifying the full path manually.
 --
--- @tparam string module The filename of the Lua module to load (relative to the mod folder)
+-- @tparam string module The filename of the Lua module to load (relative to the luanti_utils directory)
 -- @treturn any The return value of the loaded module
 --
 -- @usage

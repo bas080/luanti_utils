@@ -2,7 +2,7 @@
 -- Monkey patches the get_meta to swap out stacks. The migrate function
 -- must return the edited stack.
 --
--- @module migrate_inventory
+-- @module migrate_inventory.lua
 --
 -- @usage
 -- migrate_inventory("vines:old", function() end)

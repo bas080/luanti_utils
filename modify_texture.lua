@@ -1,3 +1,10 @@
+--- Modify texture
+-- @module modify_texture.lua
+--
+-- @tparam string modifier String that represents the modifer part. See Luanti texture modifer docs.
+-- @tparam string|{string,...} tiles Tile(s) to be modified.
+--
+-- @treturn string|{string,...} Tile(s) with the modifer applied.
 local function modify_texture(modifier, tiles)
   if type(tiles) == "table" then
     local tbl = {}

@@ -1,31 +1,34 @@
 --- Global player walk callbacks
---
 -- This module allows other modules to register callbacks that run
 -- whenever a player moves from one node to another.
+-- Callbacks are triggered only when the player moves to a different node.
+-- The module automatically tracks player positions and cleans up on leave.
 --
--- Example usage:
--- ```lua
--- minetest.register_on_player_walk(function(pos, prev_pos, player)
+-- @module register_on_player_walk.lua
+-- 
+-- @tparam on_walk on_walk Called when a player walks.
+--
+-- @usage
+-- register_on_player_walk(function(pos, prev_pos, player)
 --     -- pos: current node position
 --     -- prev_pos: previous node position
 --     -- player: the ObjectRef of the walking player
 -- end)
--- ```
---
--- Callbacks are triggered only when the player moves to a different node.
--- The module automatically tracks player positions and cleans up on leave.
+
+--- Callback
+-- @section callback
+
+---
+-- @function on_walk
+-- @tparam core.vector pos
+-- @tparam core.vector prev_pos
+-- @tparam core.player player
 
 local player_walk_callbacks = {}
 local player_last_pos = {}
 
---- Registers a callback for player movement.
--- @param fn function Callback function: `fn(pos, prev_pos, player)`
---   * `pos` Table: the current node position `{x=number, y=number, z=number}`
---   * `prev_pos` Table or nil: the previous node position
---   * `player` ObjectRef: the player walking
-local function register_on_player_walk(fn)
-    assert(type(fn) == "function", "register_on_player_walk expects a function")
-    table.insert(player_walk_callbacks, fn)
+local function register_on_player_walk(on_walk)
+    table.insert(player_walk_callbacks, on_walk)
 end
 
 -- Internal globalstep to track player movement

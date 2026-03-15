@@ -1,30 +1,40 @@
 --- Node extension to support walk-related callbacks based on player position.
--- @module node_on_player_walk
---
--- To enable it, just do:
--- ```lua
+-- Remember to dofile.
+-- 
+-- @module node_on_player_walk.lua
+-- 
+-- @usage
 -- luanti_utils.dofile("node_on_player_walk.lua")
--- ```
---
--- Nodes can define:
--- * `on_player_walk_enter(pos, player, node)` – called when a player enters a new node position
--- * `on_player_walk_leave(pos, player, node)` – called when a player leaves a previous node position
---
--- Example usage:
--- ```lua
 -- core.register_node("mymod:walkable_node", {
 --     on_player_walk_enter = function(pos, player, node) end,
 --     on_player_walk_leave = function(pos, player, node) end,
 -- })
--- ```
---
--- Callback parameters:
--- @param pos Table: position of the node under the player.
--- @param player ObjectRef: the player walking over the node.
--- @param node Table: the node table as returned by minetest.get_node(pos).
+
+--- Callbacks
+-- @section callbacks
+
+--- Called when the player walks into the current node.
+-- @function on_player_walk_enter
+-- @tparam ... params
+-- @see params
+
+--- Called when the player walks out of the current node.
+-- @function on_player_walk_leave
+-- @tparam ... params
+-- @see params
+
+--- Parameters
+-- @section parameters
+
+--- Both the enter and leave have the following function signature.
+-- @function params
+-- @tparam table pos Position of the node under the player.
+-- @tparam core.player player The player walking over the node.
+-- @tparam core.node node The node table as returned by core.get_node(pos).
 
 local register_on_player_walk = luanti_utils.dofile('register_on_player_walk.lua')
 
+-- TODO: Use the lighter get_node_raw
 register_on_player_walk(function(pos, prev, player)
     -- Node underneath instead
     pos = vector.add(pos, {x=0,y=-0.1,z=0})

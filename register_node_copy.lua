@@ -1,6 +1,6 @@
 --- Re-use existing node definitions and build ontop of them.
 -- The return value is merged into a copy of the node definition before registering.
--- @module register_node_copy
+-- @module register_node_copy.lua
 --
 -- @tparam string node_name Name of the new node.
 -- @tparam string copied_node_name The name of the node to copy.

@@ -1,21 +1,34 @@
 --- Simple FIFO queue implementation.
--- Provides push/pop operations with optional maximum size.
--- @module queue
-
---- Create a new queue.
+--
+-- @usage
+-- local max_size = 1
+-- local a_queue_of_one = queue(max_size)
+-- 
+-- -- max_size is optional. When not defined it has no limit.
+-- a_queue_of_one.push(1)
+-- a_queue_of_one.size -- 1
+-- a_queue_of_one.push(2) -- Throws with 'queue is empty'
+-- a_queue_of_one.pop() -- 1
+-- a_queue_of_one.is_empty -- true
+-- a_queue_of_one.size -- 0
+-- 
+-- @module queue.lua
 -- @tparam[opt] number max_size Maximum number of elements allowed in the queue.
--- @treturn table Queue instance.
-local function Queue(max_size)
+-- @treturn queue Instance of a queue.
+local function queue(max_size)
     local q = {}
     local head = 1
     local tail = 0
     local size = 0
 
+    --- queue
+    -- @section queue
     local M = {}
 
-    --- Push a value onto the queue.
-    -- @param v Value to add.
-    -- @treturn boolean True if the value was added, false if the queue is full.
+    ---
+    -- @function queue.push
+    -- @tparam any v Value to push
+    -- @treturn boolean True when push was successful.
     function M.push(v)
         if max_size and size >= max_size then
             return false
@@ -27,11 +40,13 @@ local function Queue(max_size)
         return true
     end
 
-    --- Pop the next value from the queue.
-    -- @treturn any The next value, or nil if the queue is empty.
+    ---
+    -- @function queue.pop
+    -- @raise Throws when queue is empty
+    -- @treturn any
     function M.pop()
         if size == 0 then
-            return nil
+            error('queue is empty')
         end
 
         local v = q[head]
@@ -47,13 +62,15 @@ local function Queue(max_size)
         return v
     end
 
-    --- Get the number of elements currently in the queue.
-    -- @treturn number
+    ---
+    -- @function queue.size
+    -- @treturn integer
     function M.size()
         return size
     end
 
-    --- Check whether the queue is empty.
+    ---
+    -- @function queue.is_empty
     -- @treturn boolean
     function M.is_empty()
         return size == 0
@@ -62,4 +79,4 @@ local function Queue(max_size)
     return M
 end
 
-return Queue
+return queue

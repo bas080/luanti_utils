@@ -2,11 +2,11 @@
 -- The returned function delays execution by `delay` seconds.
 -- If called again before the delay expires, the previous call is cancelled.
 --
--- @module debounce
+-- @module debounce.lua
 --
 -- @tparam number delay Delay in seconds
 -- @tparam function fn The function to debounce
--- @treturn function debounced The debounced function
+-- @treturn debounced The debounced function
 local function debounce(delay, fn)
     local job = nil
 
@@ -14,6 +14,8 @@ local function debounce(delay, fn)
     -- It forwards all arguments to `fn`.
     --
     -- @function debounced
+    --
+    -- @tparam ... args Forwards these args to the fn passed to `debounce`.
     --
     -- @treturn job Which allows the user to cancel.
     local function debounced (...)
@@ -26,7 +28,12 @@ local function debounce(delay, fn)
             fn(unpack(args))
         end)
 
-        --- The job
+        --- Table
+        -- @section Table
+
+        ---
+        -- @usage
+        -- job:cancel()
         --
         -- @table job
         -- @tfield function cancel Stop the debounce from completing.

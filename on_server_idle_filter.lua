@@ -2,7 +2,7 @@
 --
 -- This avoids blocking the server for too long when selecting subsets of large tables.
 --
--- @module on_server_idle_filter
+-- @module on_server_idle_filter.lua
 
 local reduce = luanti_utils.dofile('on_server_idle_reduce.lua')
 

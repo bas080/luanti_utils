@@ -2,7 +2,7 @@
 --
 -- This allows processing large tables without causing large frame-time spikes.
 --
--- @module on_server_idle_each
+-- @module on_server_idle_each.lua
 
 local reduce = luanti_utils.dofile('on_server_idle_reduce.lua')
 

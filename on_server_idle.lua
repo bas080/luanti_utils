@@ -3,12 +3,14 @@
 -- This module provides a simple mechanism to queue work and execute it only
 -- when the globalstep has spare time, helping avoid lag spikes.
 --
--- The module exposes two main interfaces:
--- 1. A wrapper function to defer execution of a function.
--- 2. A `.run` method to schedule a task immediately in the idle queue.
---
--- @module on_server_idle
+-- @module on_server_idle.lua
 
+--- Module table
+-- @table on_server_idle
+-- @tfield wrap wrap
+-- @tfield run run
+-- @tfield boolean is_idle True when the idle queue has budget to run tasks.
+-- @tfield boolean is_busy False when idle
 local M = {}
 
 local Queue = luanti_utils.dofile('queue.lua')
@@ -56,14 +58,15 @@ end)
 --
 -- Returns a new function which, when called, schedules the original
 -- function to run later with any given arguments.
+-- @function on_server_idle.wrap
 --
--- @tparam function fn Function to wrap.
+-- @tparam function task_fn Function to wrap.
 -- @treturn function Wrapped function that schedules `fn` on idle.
-function M.wrap(fn)
+function M.wrap(task_fn)
     return function(...)
         local args = {...}
         M.run(function()
-            fn(table.unpack(args))
+            task_fn(table.unpack(args))
         end)
     end
 end
@@ -72,17 +75,16 @@ end
 --
 -- The provided function will be invoked in a later globalstep, depending on
 -- how much spare time is available.
+-- @function on_server_idle.run
 --
 -- @tparam function task_fn Function receiving `dtime` as the first argument.
 function M.run(task_fn)
     queue.push(task_fn)
 end
 
---- Current idle state of the server.
--- True when the idle queue has budget to run tasks.
--- @tfield bool is_idle
--- @tfield bool is_busy
 M.is_idle = true
 M.is_busy = false
 
+---
+-- @treturn on_server_idle
 return M

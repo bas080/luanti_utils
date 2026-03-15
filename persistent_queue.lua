@@ -1,6 +1,6 @@
 --- Persistent FIFO queue backed by Luanti ModStorage.
 -- Queue contents must be serializable with core.serialize.
--- @module persistent_queue
+-- @module persistent_queue.lua
 
 local storage = core.get_mod_storage()
 

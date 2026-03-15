@@ -3,9 +3,9 @@
 -- optionally calling the original implementation via next.
 -- This works on boths nodes and items as it uses core.override_item under the hood.
 --
--- @module extend_item
+-- @module extend_item.lua
 --
--- @see extend_function
+-- @see extend_function.lua
 --
 -- @usage
 -- extend_item("default:stone", {

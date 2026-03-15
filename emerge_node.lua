@@ -9,7 +9,7 @@
 -- emerged. Otherwise, it may be called immediately.
 --
 --
--- @module emerge_node
+-- @module emerge_node.lua
 
 --- Retrieve a node at a given position and call a callback when available.
 --

@@ -1,6 +1,6 @@
 --- Takes the original function and a callback that receives the old function and arguments.
 -- You can decide if you want to call the old function and in which order to do operations.
--- @module extend_function
+-- @module extend_function.lua
 --
 --
 -- @tparam function original_fn The function being extended
