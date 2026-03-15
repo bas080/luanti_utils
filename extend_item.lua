@@ -1,19 +1,11 @@
 --- Extend callbacks of a registered node by wrapping them.
 -- Allows injecting behavior before/after an existing callback while still
--- optionally calling the original implementation via `next`.
---
--- The provided callback receives `next` as its first argument. Calling `next(...)`
--- will invoke the original callback if it exists.
+-- optionally calling the original implementation via next.
+-- This works on boths nodes and items as it uses core.override_item under the hood.
 --
 -- @module extend_item
-
---- Extend callbacks on a node definition.
--- Internally uses `core.override_item` to replace callbacks with wrappers.
 --
--- @tparam string node_name Name of the node in `core.registered_nodes`
--- @tparam table extend_def Table of callbacks to extend
--- @tparam function extend_def.<callback> Replacement callback that receives
--- `next` as its first parameter followed by the original callback arguments.
+-- @see extend_function
 --
 -- @usage
 -- extend_item("default:stone", {
@@ -25,15 +17,30 @@
 --   end
 -- })
 --
--- @function extend_item
-local extend_item = function(node_name, extend_def)
+-- @tparam string node_name Name of the node in `core.registered_nodes`
+-- @tparam extend_def extend_def Table of callbacks to extend
+-- @treturn nil
+
+--- Callbacks for extending item definitions.
+-- Each key in the table should be a function. 
+-- Functions receive `next` plus the usual arguments of the original callback.
+--
+-- @todo Figure out how to document the extend_def
+--
+-- @type table extend_def
+-- @tfield function any
+local table_merge = luanti_utils.dofile('table_merge.lua')
+
+local items = table_merge(core.registered_nodes, core.registered_items)
+
+function extend_item(item_name, extend_def, items_subset)
   -- Get the original node definition
-  local node_def = core.registered_nodes[node_name]
+  local item_def = items_subset or items[item_name]
 
   local override_def = {}
 
   for key, extended_callback in pairs(extend_def) do
-    local original_callback = node_def[key]
+    local original_callback = item_def[key]
 
     override_def[key] = function(...)
       local next = nil
@@ -49,7 +56,8 @@ local extend_item = function(node_name, extend_def)
     end
   end
 
-  core.override_item(node_name, override_def)
+  core.override_item(item_name, override_def)
 end
 
 return extend_item
+
