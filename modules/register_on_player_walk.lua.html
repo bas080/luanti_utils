@@ -34,17 +34,11 @@
 
 <h2>Contents</h2>
 <ul>
-<li><a href="#Installation">Installation </a></li>
-<li><a href="#Documentation">Documentation </a></li>
-<li><a href="#Experimental">Experimental </a></li>
-<li><a href="#License">License </a></li>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Callbacks">Callbacks </a></li>
 </ul>
 
 
-<h2>Topics</h2>
-<ul class="">
-  <li><strong>README</strong></li>
-</ul>
 <h2>Modules</h2>
 <ul class="nowrap">
   <li><a href="../modules/debounce.lua.html">debounce.lua</a></li>
@@ -65,55 +59,125 @@
   <li><a href="../modules/persistent_queue.lua.html">persistent_queue.lua</a></li>
   <li><a href="../modules/queue.lua.html">queue.lua</a></li>
   <li><a href="../modules/register_node_copy.lua.html">register_node_copy.lua</a></li>
-  <li><a href="../modules/register_on_player_walk.lua.html">register_on_player_walk.lua</a></li>
+  <li><strong>register_on_player_walk.lua</strong></li>
   <li><a href="../modules/table_merge.lua.html">table_merge.lua</a></li>
+</ul>
+<h2>Topics</h2>
+<ul class="">
+  <li><a href="../topics/README.md.html">README</a></li>
 </ul>
 
 </div>
 
 <div id="content">
 
+<h1>Module <code>register_on_player_walk.lua</code></h1>
+<p>Global player walk callbacks</p>
 
-<h1>luanti_utils</h1>
-
-<p>High level <a href="https://www.luanti.org/">Luanti</a> lua modding utilities that will bring your mods to the next level.</p>
-
-<p><a name="Installation"></a></p>
-<h2>Installation</h2>
-
-<ol>
-    <li>Get the luanti_utils in your mod folder by downloading it from the Luanti mods UI.</li>
-    <li>Add luanti_utils as a dependency in your mod.</li>
-    <li>Read the docs to get started.</li>
-</ol>
-
-<p><a name="Documentation"></a></p>
-<h2>Documentation</h2>
-
-<p>You start by aquiring a module. See <a href="https://bas080.github.io/luanti_utils/modules/luanti_utils.html#dofile">luanti_utils.dofile</a></p>
-
-
-<pre>
-<span class="keyword">local</span> util = luanti_utils.<span class="global">dofile</span>(<span class="string">'&lt;luanti_util&gt;.lua'</span>)
+<p> This module allows other modules to register callbacks that run
+ whenever a player moves from one node to another.</p>
+<p> Callbacks are triggered only when the player moves to a different node.
+ The module automatically tracks player positions and cleans up on leave.</p>
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">register_on_player_walk(function(pos, prev_pos, player)
+    -- pos: current node position
+    -- prev_pos: previous node position
+    -- player: the ObjectRef of the walking player
+end)
 </pre>
+    </ul>
 
 
-<p>See <a href="https://bas080.github.io/luanti_utils/index.html">Luanti Utils Documentation</a>.</p>
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#returns...">returns... (on_walk)</a></td>
+	<td class="summary">
 
-<blockquote>
-    <p>Docs are generated using <a href="https://stevedonovan.github.io/ldoc/">LDoc</a> comments.</p>
-</blockquote>
+</td>
+	</tr>
+</table>
+<h2><a href="#Callbacks">Callbacks </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#on_walk">on_walk (pos, prev_pos, player)</a></td>
+	<td class="summary">on_walk</td>
+	</tr>
+</table>
 
-<p><a name="Experimental"></a></p>
-<h2>Experimental</h2>
+<br/>
+<br/>
 
-<p>There is an <code>experimental</code> branch. These APIs are suject to change. </p>
 
-<p><a name="License"></a></p>
-<h2>License</h2>
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
 
-<p>See <a href="https://github.com/bas080/luanti_utils/blob/master/LICENSE.txt">LICENSE.txt</a> file</p>
+    <dl class="function">
+    <dt>
+    <a name = "returns..."></a>
+    <strong>returns... (on_walk)</strong>
+    </dt>
+    <dd>
 
+
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">on_walk</span>
+            <span class="types"><span class="type">on_walk</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Callbacks"></a>Callbacks </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "on_walk"></a>
+    <strong>on_walk (pos, prev_pos, player)</strong>
+    </dt>
+    <dd>
+    on_walk
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pos</span>
+            <span class="types"><span class="type">core.vector</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">prev_pos</span>
+            <span class="types"><span class="type">core.vector</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">player</span>
+            <span class="types"><span class="type">core.player</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
 
 
 </div> <!-- id="content" -->
