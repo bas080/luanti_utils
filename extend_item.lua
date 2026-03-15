@@ -17,18 +17,11 @@
 --   end
 -- })
 --
+-- @todo Find a way to document extend_def table
+--
 -- @tparam string node_name Name of the node in `core.registered_nodes`
 -- @tparam extend_def extend_def Table of callbacks to extend
 -- @treturn nil
-
---- Callbacks for extending item definitions.
--- Each key in the table should be a function. 
--- Functions receive `next` plus the usual arguments of the original callback.
---
--- @todo Figure out how to document the extend_def
---
--- @type table extend_def
--- @tfield function any
 local table_merge = luanti_utils.dofile('table_merge.lua')
 
 local items = table_merge(core.registered_nodes, core.registered_items)
