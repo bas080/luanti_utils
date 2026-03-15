@@ -1,3 +1,16 @@
+--- Migrate the player and node inventories
+-- Monkey patches the get_meta to swap out stacks. The migrate function
+-- must return the edited stack.
+--
+-- @module migrate_inventory
+--
+-- @usage
+-- migrate_inventory("vines:old", function() end)
+--
+-- @tparam string item_name
+-- @tparam function migrate
+-- @treturn nil
+
 local extend_function = luanti_utils.dofile('extend_function.lua')
 
 -- Weak table to track already-migrated inventories
