@@ -9,6 +9,8 @@ local modpath = core.get_modpath(core.get_current_modname())
 --- The global luanti_utils table.
 luanti_utils = {}
 
+local dofile_cache = {}
+
 --- Load a Lua file from the current mod directory.
 --
 -- This is a wrapper around `dofile` that automatically prepends the
@@ -22,5 +24,9 @@ luanti_utils = {}
 -- local extend_item = luanti_utils.dofile("extend_item.lua")
 -- local extend_group = luanti_utils.dofile("extend_group.lua")
 function luanti_utils.dofile(module)
-  return dofile(modpath .. '/' .. module)
+  if dofile_cache[module] then return dofile_cache[module] end
+
+  dofile_cache[module] = dofile(modpath .. '/' .. module)
+
+  return dofile_cache[module]
 end
