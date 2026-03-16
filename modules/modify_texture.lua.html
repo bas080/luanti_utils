@@ -36,12 +36,7 @@
 
 <h2>Functions</h2>
 <ul class="nowrap">
-    <li><a href="#returns...">returns... (tbl, on_item, Initial[, on_done])</a></li>
-</ul>
-<h2>Callbacks </h2>
-<ul class="nowrap">
-    <li><a href="#on_item">on_item (accumulated, item)</a></li>
-    <li><a href="#on_done">on_done (accumulated)</a></li>
+    <li><a href="#returns...">returns... (modifier, tiles)</a></li>
 </ul>
 <h2>Modules</h2>
 <ul class="nowrap">
@@ -54,14 +49,14 @@
   <li><a href="../modules/init.lua.html">init.lua</a></li>
   <li><a href="../modules/migrate_inventory.lua.html">migrate_inventory.lua</a></li>
   <li><a href="../modules/migrate_node.lua.html">migrate_node.lua</a></li>
-  <li><a href="../modules/modify_texture.lua.html">modify_texture.lua</a></li>
+  <li><strong>modify_texture.lua</strong></li>
   <li><a href="../modules/node_on_player_walk.lua.html">node_on_player_walk.lua</a></li>
   <li><a href="../modules/noop.lua.html">noop.lua</a></li>
   <li><a href="../modules/on_server_idle.lua.html">on_server_idle.lua</a></li>
   <li><a href="../modules/on_server_idle_each.lua.html">on_server_idle_each.lua</a></li>
   <li><a href="../modules/on_server_idle_filter.lua.html">on_server_idle_filter.lua</a></li>
   <li><a href="../modules/on_server_idle_map.lua.html">on_server_idle_map.lua</a></li>
-  <li><strong>on_server_idle_reduce.lua</strong></li>
+  <li><a href="../modules/on_server_idle_reduce.lua.html">on_server_idle_reduce.lua</a></li>
   <li><a href="../modules/persistent_queue.lua.html">persistent_queue.lua</a></li>
   <li><a href="../modules/queue.lua.html">queue.lua</a></li>
   <li><a href="../modules/register_node_copy.lua.html">register_node_copy.lua</a></li>
@@ -77,10 +72,11 @@
 
 <div id="content">
 
-<h1>Module <code>on_server_idle_reduce.lua</code></h1>
-<p>Reduce a table asynchronously using idle callbacks.</p>
-<p> This helper uses <a href="../modules/on_server_idle.lua.html#">on_server_idle.lua</a> to process each element over multiple frames,
- preventing long-running loops from causing lag.</p>
+<h1>Module <code>modify_texture.lua</code></h1>
+<p>Modify texture</p>
+<p>
+
+</p>
 
 
 
@@ -89,7 +85,7 @@
     <dl class="function">
     <dt>
     <a name = "returns..."></a>
-    <strong>returns... (tbl, on_item, Initial[, on_done])</strong>
+    <strong>returns... (modifier, tiles)</strong>
     </dt>
     <dd>
 
@@ -99,87 +95,22 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">tbl</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-         Table to reduce.
+        <li><span class="parameter">modifier</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         String that represents the modifer part. See Luanti texture modifer docs.
         </li>
-        <li><span class="parameter">on_item</span>
-            <span class="types"><span class="type">function</span></span>
-         Reduction function <code>(acc, item) -&gt; acc</code>.
-        </li>
-        <li><span class="parameter">Initial</span>
-            <span class="types"><span class="type">acc</span></span>
-         accumulator value.
-        </li>
-        <li><span class="parameter">on_done</span>
-            <span class="types"><span class="type">on_done</span></span>
-         Optional callback called with the final accumulator.
-         (<em>optional</em>)
+        <li><span class="parameter">tiles</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">{string,...}</a></span>
+         Tile(s) to be modified.
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-        Job object with a <code>cancel()</code> method.
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a> or <a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">{string,...}</a></span>
+        Tile(s) with the modifer applied.
     </ol>
-
-
-
-
-</dd>
-</dl>
-    <h2 class="section-header "><a name="Callbacks"></a>Callbacks </h2>
-
-    <dl class="function">
-    <dt>
-    <a name = "on_item"></a>
-    <strong>on_item (accumulated, item)</strong>
-    </dt>
-    <dd>
-    Called for each item in the provided table.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">accumulated</span>
-            <span class="types"><span class="type">any</span></span>
-
-
-
-        </li>
-        <li><span class="parameter">item</span>
-            <span class="types"><span class="type">any</span></span>
-
-
-
-        </li>
-    </ul>
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "on_done"></a>
-    <strong>on_done (accumulated)</strong>
-    </dt>
-    <dd>
-    Called after all items have been iterated.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">accumulated</span>
-            <span class="types"><span class="type">any</span></span>
-
-
-
-        </li>
-    </ul>
-
 
 
 

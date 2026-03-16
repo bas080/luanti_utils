@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>luanti_utils API</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+    <link rel="icon" href="favicon.png" type="image/png" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>luanti_utils</h1>
+
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+
+
+<h2>Functions</h2>
+<ul class="nowrap">
+    <li><a href="#controls.register_on_press">controls.register_on_press (player, key)</a></li>
+    <li><a href="#controls.register_on_hold">controls.register_on_hold (player, key, length)</a></li>
+    <li><a href="#controls.register_on_release">controls.register_on_release (player, key, length)</a></li>
+</ul>
+<h2>Tables</h2>
+<ul class="nowrap">
+    <li><a href="#controls">controls</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><strong>controls.lua</strong></li>
+  <li><a href="../modules/debounce.lua.html">debounce.lua</a></li>
+  <li><a href="../modules/emerge_node.lua.html">emerge_node.lua</a></li>
+  <li><a href="../modules/extend_function.lua.html">extend_function.lua</a></li>
+  <li><a href="../modules/extend_group.lua.html">extend_group.lua</a></li>
+  <li><a href="../modules/extend_item.lua.html">extend_item.lua</a></li>
+  <li><a href="../modules/init.lua.html">init.lua</a></li>
+  <li><a href="../modules/migrate_inventory.lua.html">migrate_inventory.lua</a></li>
+  <li><a href="../modules/migrate_node.lua.html">migrate_node.lua</a></li>
+  <li><a href="../modules/modify_texture.lua.html">modify_texture.lua</a></li>
+  <li><a href="../modules/node_on_player_walk.lua.html">node_on_player_walk.lua</a></li>
+  <li><a href="../modules/noop.lua.html">noop.lua</a></li>
+  <li><a href="../modules/on_server_idle.lua.html">on_server_idle.lua</a></li>
+  <li><a href="../modules/on_server_idle_each.lua.html">on_server_idle_each.lua</a></li>
+  <li><a href="../modules/on_server_idle_filter.lua.html">on_server_idle_filter.lua</a></li>
+  <li><a href="../modules/on_server_idle_map.lua.html">on_server_idle_map.lua</a></li>
+  <li><a href="../modules/on_server_idle_reduce.lua.html">on_server_idle_reduce.lua</a></li>
+  <li><a href="../modules/persistent_queue.lua.html">persistent_queue.lua</a></li>
+  <li><a href="../modules/queue.lua.html">queue.lua</a></li>
+  <li><a href="../modules/register_node_copy.lua.html">register_node_copy.lua</a></li>
+  <li><a href="../modules/register_on_player_walk.lua.html">register_on_player_walk.lua</a></li>
+  <li><a href="../modules/table_merge.lua.html">table_merge.lua</a></li>
+</ul>
+<h2>Topics</h2>
+<ul class="">
+  <li><a href="../topics/README.md.html">README</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>controls.lua</code></h1>
+<p>This module simply returns the controls mod as is.</p>
+<p> <a href="https://content.luanti.org/packages/mt-mods/controls/">https://content.luanti.org/packages/mt-mods/controls/</a></p>
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">local controls = luanti_utils.dofile(&apos;controls.lua&apos;)
+
+controls.register_on_press(function(player, key)
+    -- Called when a key is pressed
+    -- player: player object
+    -- key: key pressed
+end)
+
+controls.register_on_hold(function(player, key, length)
+    -- Called every globalstep while a key is held
+    -- player: player object
+    -- key: key pressed
+    -- length: length of time key has been held in seconds
+end)
+
+controls.register_on_release(function(player, key, length)
+    -- Called when a key is released
+    -- player: player object
+    -- key: key pressed
+    -- length: length of time key was held in seconds
+end)
+</pre>
+    </ul>
+
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "controls.register_on_press"></a>
+    <strong>controls.register_on_press (player, key)</strong>
+    </dt>
+    <dd>
+
+
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">player</span>
+            <span class="types"><span class="type">core.player</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">key</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "controls.register_on_hold"></a>
+    <strong>controls.register_on_hold (player, key, length)</strong>
+    </dt>
+    <dd>
+
+
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">player</span>
+            <span class="types"><span class="type">core.player</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">key</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+        <li><span class="parameter">length</span>
+            <span class="types"><span class="type">integer</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "controls.register_on_release"></a>
+    <strong>controls.register_on_release (player, key, length)</strong>
+    </dt>
+    <dd>
+
+
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">player</span>
+            <span class="types"><span class="type">core.player</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">key</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+        <li><span class="parameter">length</span>
+            <span class="types"><span class="type">integer</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "controls"></a>
+    <strong>controls</strong>
+    </dt>
+    <dd>
+    Module table
+
+
+    <h3>Fields:</h3>
+    <ul>
+        <li><span class="parameter">register_on_press</span>
+            <span class="types"><span class="type">controls.register_on_press</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">register_on_hold</span>
+            <span class="types"><span class="type">controls.register_on_hold</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">register_on_release</span>
+            <span class="types"><span class="type">controls.register_on_release</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
+<i style="float:right;">Last updated 2026-03-16 11:33:20 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

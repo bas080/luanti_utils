@@ -5,7 +5,7 @@
 <head>
     <title>luanti_utils API</title>
     <link rel="stylesheet" href="../ldoc.css" type="text/css" />
-    <link rel="icon" href="favicon.ico" type="image/png" />
+    <link rel="icon" href="favicon.png" type="image/png" />
 </head>
 <body>
 
@@ -32,15 +32,20 @@
   <li><a href="../index.html">Index</a></li>
 </ul>
 
-<h2>Contents</h2>
-<ul>
-<li><a href="#Functions">Functions</a></li>
-<li><a href="#Fields">Fields</a></li>
+
+
+<h2>Functions</h2>
+<ul class="nowrap">
+    <li><a href="#on_server_idle.wrap">on_server_idle.wrap (task_fn)</a></li>
+    <li><a href="#on_server_idle.run">on_server_idle.run (task_fn)</a></li>
 </ul>
-
-
+<h2>Tables</h2>
+<ul class="nowrap">
+    <li><a href="#on_server_idle">on_server_idle</a></li>
+</ul>
 <h2>Modules</h2>
 <ul class="nowrap">
+  <li><a href="../modules/controls.lua.html">controls.lua</a></li>
   <li><a href="../modules/debounce.lua.html">debounce.lua</a></li>
   <li><a href="../modules/emerge_node.lua.html">emerge_node.lua</a></li>
   <li><a href="../modules/extend_function.lua.html">extend_function.lua</a></li>
@@ -49,6 +54,7 @@
   <li><a href="../modules/init.lua.html">init.lua</a></li>
   <li><a href="../modules/migrate_inventory.lua.html">migrate_inventory.lua</a></li>
   <li><a href="../modules/migrate_node.lua.html">migrate_node.lua</a></li>
+  <li><a href="../modules/modify_texture.lua.html">modify_texture.lua</a></li>
   <li><a href="../modules/node_on_player_walk.lua.html">node_on_player_walk.lua</a></li>
   <li><a href="../modules/noop.lua.html">noop.lua</a></li>
   <li><strong>on_server_idle.lua</strong></li>
@@ -76,40 +82,14 @@
 <p> This module provides a simple mechanism to queue work and execute it only
  when the globalstep has spare time, helping avoid lag spikes.</p>
 
-<p> The module exposes two main interfaces:
- 1. A wrapper function to defer execution of a function.
- 2. A <code>.run</code> method to schedule a task immediately in the idle queue.</p>
-
-
-<h2><a href="#Functions">Functions</a></h2>
-<table class="function_list">
-	<tr>
-	<td class="name" nowrap><a href="#wrap">wrap (fn)</a></td>
-	<td class="summary">Wrap a function so that it runs when the server is idle.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#run">run (task_fn)</a></td>
-	<td class="summary">Schedule a task to run when the server is idle.</td>
-	</tr>
-</table>
-<h2><a href="#Fields">Fields</a></h2>
-<table class="function_list">
-	<tr>
-	<td class="name" nowrap><a href="#is_idle">is_idle</a></td>
-	<td class="summary">Current idle state of the server.</td>
-	</tr>
-</table>
-
-<br/>
-<br/>
 
 
     <h2 class="section-header "><a name="Functions"></a>Functions</h2>
 
     <dl class="function">
     <dt>
-    <a name = "wrap"></a>
-    <strong>wrap (fn)</strong>
+    <a name = "on_server_idle.wrap"></a>
+    <strong>on_server_idle.wrap (task_fn)</strong>
     </dt>
     <dd>
     Wrap a function so that it runs when the server is idle. </p>
@@ -120,7 +100,7 @@
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">fn</span>
+        <li><span class="parameter">task_fn</span>
             <span class="types"><span class="type">function</span></span>
          Function to wrap.
         </li>
@@ -138,8 +118,8 @@
 
 </dd>
     <dt>
-    <a name = "run"></a>
-    <strong>run (task_fn)</strong>
+    <a name = "on_server_idle.run"></a>
+    <strong>on_server_idle.run (task_fn)</strong>
     </dt>
     <dd>
     Schedule a task to run when the server is idle. </p>
@@ -162,30 +142,38 @@
 
 </dd>
 </dl>
-    <h2 class="section-header "><a name="Fields"></a>Fields</h2>
+    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
 
     <dl class="function">
     <dt>
-    <a name = "is_idle"></a>
-    <strong>is_idle</strong>
+    <a name = "on_server_idle"></a>
+    <strong>on_server_idle</strong>
     </dt>
     <dd>
-    Current idle state of the server.
- True when the idle queue has budget to run tasks.
+    Module table
 
 
+    <h3>Fields:</h3>
     <ul>
-        <li><span class="parameter">is_idle</span>
-            <span class="types"><span class="type">bool</span></span>
+        <li><span class="parameter">wrap</span>
+            <span class="types"><a class="type" href="../modules/on_server_idle.lua.html#on_server_idle.wrap">wrap</a></span>
 
 
 
         </li>
+        <li><span class="parameter">run</span>
+            <span class="types"><a class="type" href="../modules/on_server_idle.lua.html#on_server_idle.run">run</a></span>
+
+
+
+        </li>
+        <li><span class="parameter">is_idle</span>
+            <span class="types"><span class="type">boolean</span></span>
+         True when the idle queue has budget to run tasks.
+        </li>
         <li><span class="parameter">is_busy</span>
-            <span class="types"><span class="type">bool</span></span>
-
-
-
+            <span class="types"><span class="type">boolean</span></span>
+         False when idle
         </li>
     </ul>
 
@@ -201,7 +189,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2026-03-15 17:47:13 </i>
+<i style="float:right;">Last updated 2026-03-16 11:33:20 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
