@@ -9,10 +9,10 @@
 -- 
 -- @usage
 -- local register_node_copy = require("register_node")
--- register_node("mymod:leaf", "copy:node", function(copy) return {
+-- register_node("mymod:leaves", "default:leaves", function(default_leaves) return {
+--     -- Overwrite certain values.
 --     description = "Leaf",
---     tiles = {"leaf.png"},
---     copy_of = "default:leaves"
+--     tiles = {"mymod_leaves.png"},
 -- })
 
 local table_merge = luanti_utils.dofile('table_merge.lua')
