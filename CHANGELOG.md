@@ -1,5 +1,12 @@
 # Changelog
 
+
+## 0.0.3
+
+- Add `controls.lua` as proxy module for optional controls mod.
+- General improvements to module documentation.
+- Add wallmounted_to_facedir param2 util.
+
 ## 0.0.2
 
 - Add modify_texture util.
