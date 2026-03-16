@@ -34,11 +34,17 @@
 
 
 
+<h2>Functions</h2>
+<ul class="nowrap">
+    <li><a href="#returns...">returns... (tbl)</a></li>
+    <li><a href="#by_key">by_key (key)</a></li>
+    <li><a href="#by_value">by_value (value)</a></li>
+</ul>
 <h2>Modules</h2>
 <ul class="nowrap">
   <li><a href="../modules/controls.lua.html">controls.lua</a></li>
   <li><a href="../modules/debounce.lua.html">debounce.lua</a></li>
-  <li><strong>emerge_node.lua</strong></li>
+  <li><a href="../modules/emerge_node.lua.html">emerge_node.lua</a></li>
   <li><a href="../modules/extend_function.lua.html">extend_function.lua</a></li>
   <li><a href="../modules/extend_group.lua.html">extend_group.lua</a></li>
   <li><a href="../modules/extend_item.lua.html">extend_item.lua</a></li>
@@ -57,7 +63,7 @@
   <li><a href="../modules/queue.lua.html">queue.lua</a></li>
   <li><a href="../modules/register_node_copy.lua.html">register_node_copy.lua</a></li>
   <li><a href="../modules/register_on_player_walk.lua.html">register_on_player_walk.lua</a></li>
-  <li><a href="../modules/table_lookup.lua.html">table_lookup.lua</a></li>
+  <li><strong>table_lookup.lua</strong></li>
   <li><a href="../modules/table_merge.lua.html">table_merge.lua</a></li>
   <li><a href="../modules/wallmounted_to_facedir.lua.html">wallmounted_to_facedir.lua</a></li>
 </ul>
@@ -70,18 +76,125 @@
 
 <div id="content">
 
-<h1>Module <code>emerge_node.lua</code></h1>
-<p>Ensure a node is loaded and call a callback with it.</p>
-<p> This function attempts to get the node at <code>pos</code>. If the node is not
- loaded yet, it requests the server to emerge the area containing <code>pos</code>.
- Once the node becomes available, the provided callback is called with
- the node and its position.</p>
+<h1>Module <code>table_lookup.lua</code></h1>
+<p>Get values by key or value.</p>
+<p>
 
-<p> The callback is always called asynchronously if the node needs to be
- emerged. Otherwise, it may be called immediately.</p>
+</p>
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example">local by_key, by_value = table_lookup({
+  &quot;red&quot; = &quot;wool:red&quot;,
+  &quot;blue&quot; = &quot;wool:blue&quot;,
+})
+
+by_key(&quot;red&quot;) -- &quot;wool:red&quot;
+by_value(&quot;wool:blue&quot;) -- &quot;blue&quot;
+</pre>
+    </ul>
 
 
 
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "returns..."></a>
+    <strong>returns... (tbl)</strong>
+    </dt>
+    <dd>
+
+
+
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">tbl</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+           <span class="types"><span class="type">function</span></span>
+        by_key</li>
+        <li>
+           <span class="types"><span class="type">function</span></span>
+        by_value</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "by_key"></a>
+    <strong>by_key (key)</strong>
+    </dt>
+    <dd>
+    Lookup value by key
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">key</span>
+            <span class="types"><span class="type">any</span></span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">any</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "by_value"></a>
+    <strong>by_value (value)</strong>
+    </dt>
+    <dd>
+    Lookup key by value
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">value</span>
+            <span class="types"><span class="type">any</span></span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">any</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+</dl>
 
 
 </div> <!-- id="content" -->
