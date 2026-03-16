@@ -12,7 +12,7 @@
 --   on_punch = function(next, pos, node, puncher, pointed_thing)
 --     minetest.chat_send_all("Stone punched!")
 --     if next then
---       return next(pos, node, puncher, pointed_thing)
+--       return next()
 --     end
 --   end
 -- })
