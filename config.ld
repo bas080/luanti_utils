@@ -7,3 +7,4 @@ format  = "markdown"
 readme  = "./README.md"
 favicon = "favicon.png"
 no_summary = true
+template = "./doc"
