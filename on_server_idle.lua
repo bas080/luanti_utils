@@ -85,6 +85,4 @@ end
 M.is_idle = true
 M.is_busy = false
 
----
--- @treturn on_server_idle
 return M

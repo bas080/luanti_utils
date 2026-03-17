@@ -4,7 +4,7 @@
 --
 -- @tparam string node_name Name of the new node.
 -- @tparam string copied_node_name The name of the node to copy.
--- @tparam function def_fn Callback with arg being the node def that is being copied.
+-- @tparam define define_fn Callback with arg being the node def that is being copied.
 -- @treturn nil
 -- 
 -- @usage
@@ -14,6 +14,13 @@
 --     description = "Leaf",
 --     tiles = {"mymod_leaves.png"},
 -- })
+
+--- Callbacks
+-- @section Callbacks
+
+---
+-- @function define
+-- @tparam core.node_definition copied_node_def
 
 local table_merge = luanti_utils.dofile('table_merge.lua')
 
