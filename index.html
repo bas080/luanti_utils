@@ -4,7 +4,59 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <head>
     <title>luanti_utils API</title>
-    <link rel="stylesheet" href="ldoc.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <style>
+        .parameter {
+            color: var(--code);
+        }
+
+        hr {
+            margin-top: 2rem;
+        }
+
+        .home {
+            margin-bottom: 0.5em;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        dd {
+            margin: 0;
+        }
+
+        h1,h2,h3,h4 {
+            margin-top: 1em;
+            margin-bottom: 0.1em;
+        }
+
+        #content strong, #content a[name] {
+            color: var(--code);
+            font-family: monospace;
+            margin-top: 1em;
+
+            font-size: 1.85rem;
+        }
+
+        #content a{
+            text-decoration: none;
+            opacity: 0.5;
+        }
+        #content a:target {
+            opacity: 1;
+            color: var(--marked);
+        }
+
+        ul, ol {
+            list-style: "🧩 ";
+            padding-left: 2rem;
+        }
+
+        footer {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            text-align: center;
+        }
+    </style>
     <link rel="icon" href="favicon.png" type="image/png" />
 </head>
 <body>
@@ -24,8 +76,15 @@
 <!-- Menu -->
 
 <div id="navigation">
-<br/>
-<h1>luanti_utils</h1>
+
+<h1>
+<a class="home" href="../index.html">
+luanti_utils
+</a>
+</h1>
+
+<details>
+<summary>Navigation</summary>
 
 
 
@@ -63,6 +122,12 @@
   <li><a href="topics/README.md.html">README</a></li>
 </ul>
 
+</details>
+
+
+
+<hr/>
+
 </div>
 
 <div id="content">
@@ -72,121 +137,130 @@
 <h2>Modules</h2>
 <table class="module_list">
 	<tr>
-		<td class="name"  nowrap><a href="modules/controls.lua.html">controls.lua</a></td>
+		<td class="name" nowrap><a href="modules/controls.lua.html">controls.lua</a></td>
 		<td class="summary">This module simply returns the controls mod as is.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/debounce.lua.html">debounce.lua</a></td>
+		<td class="name" nowrap><a href="modules/debounce.lua.html">debounce.lua</a></td>
 		<td class="summary">Returns a debounced version of a function.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/emerge_node.lua.html">emerge_node.lua</a></td>
+		<td class="name" nowrap><a href="modules/emerge_node.lua.html">emerge_node.lua</a></td>
 		<td class="summary">Ensure a node is loaded and call a callback with it.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/extend_function.lua.html">extend_function.lua</a></td>
+		<td class="name" nowrap><a href="modules/extend_function.lua.html">extend_function.lua</a></td>
 		<td class="summary">Takes the original function and a callback that receives the old function and arguments.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/extend_group.lua.html">extend_group.lua</a></td>
+		<td class="name" nowrap><a href="modules/extend_group.lua.html">extend_group.lua</a></td>
 		<td class="summary">Extend callbacks for all nodes in a specific group.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/extend_item.lua.html">extend_item.lua</a></td>
+		<td class="name" nowrap><a href="modules/extend_item.lua.html">extend_item.lua</a></td>
 		<td class="summary">Extend callbacks of a registered node by wrapping them.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/init.lua.html">init.lua</a></td>
+		<td class="name" nowrap><a href="modules/init.lua.html">init.lua</a></td>
 		<td class="summary">Luanti init.lua for <code>luanti_utils</code>.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/migrate_inventory.lua.html">migrate_inventory.lua</a></td>
+		<td class="name" nowrap><a href="modules/migrate_inventory.lua.html">migrate_inventory.lua</a></td>
 		<td class="summary">Migrate the player and node inventories
  Monkey patches the get_meta to swap out stacks.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/migrate_node.lua.html">migrate_node.lua</a></td>
+		<td class="name" nowrap><a href="modules/migrate_node.lua.html">migrate_node.lua</a></td>
 		<td class="summary">Migrate world nodes</p>
 
 <p> This does not perform migrations on world start but on block load.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/modify_texture.lua.html">modify_texture.lua</a></td>
+		<td class="name" nowrap><a href="modules/modify_texture.lua.html">modify_texture.lua</a></td>
 		<td class="summary">Modify texture</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/node_on_player_walk.lua.html">node_on_player_walk.lua</a></td>
+		<td class="name" nowrap><a href="modules/node_on_player_walk.lua.html">node_on_player_walk.lua</a></td>
 		<td class="summary">Node extension to support walk-related callbacks based on player position.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/noop.lua.html">noop.lua</a></td>
+		<td class="name" nowrap><a href="modules/noop.lua.html">noop.lua</a></td>
 		<td class="summary">A function that does nothing.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/on_server_idle.lua.html">on_server_idle.lua</a></td>
+		<td class="name" nowrap><a href="modules/on_server_idle.lua.html">on_server_idle.lua</a></td>
 		<td class="summary">Run tasks when the server is idle (spread work across globalsteps).</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/on_server_idle_each.lua.html">on_server_idle_each.lua</a></td>
+		<td class="name" nowrap><a href="modules/on_server_idle_each.lua.html">on_server_idle_each.lua</a></td>
 		<td class="summary">Iterate over a table in small increments during server idle frames.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/on_server_idle_filter.lua.html">on_server_idle_filter.lua</a></td>
+		<td class="name" nowrap><a href="modules/on_server_idle_filter.lua.html">on_server_idle_filter.lua</a></td>
 		<td class="summary">Filter a table in small increments during server idle frames.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/on_server_idle_map.lua.html">on_server_idle_map.lua</a></td>
+		<td class="name" nowrap><a href="modules/on_server_idle_map.lua.html">on_server_idle_map.lua</a></td>
 		<td class="summary">Map over a table in small increments during server idle frames.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/on_server_idle_reduce.lua.html">on_server_idle_reduce.lua</a></td>
+		<td class="name" nowrap><a href="modules/on_server_idle_reduce.lua.html">on_server_idle_reduce.lua</a></td>
 		<td class="summary">Reduce a table asynchronously using idle callbacks.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/persistent_queue.lua.html">persistent_queue.lua</a></td>
+		<td class="name" nowrap><a href="modules/persistent_queue.lua.html">persistent_queue.lua</a></td>
 		<td class="summary">Persistent FIFO queue backed by Luanti ModStorage.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/queue.lua.html">queue.lua</a></td>
+		<td class="name" nowrap><a href="modules/queue.lua.html">queue.lua</a></td>
 		<td class="summary">Simple FIFO queue implementation.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/register_node_copy.lua.html">register_node_copy.lua</a></td>
+		<td class="name" nowrap><a href="modules/register_node_copy.lua.html">register_node_copy.lua</a></td>
 		<td class="summary">Re-use existing node definitions and build ontop of them.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/register_on_player_walk.lua.html">register_on_player_walk.lua</a></td>
+		<td class="name" nowrap><a href="modules/register_on_player_walk.lua.html">register_on_player_walk.lua</a></td>
 		<td class="summary">Global player walk callbacks
  This module allows other modules to register callbacks that run
  whenever a player moves from one node to another.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/table_lookup.lua.html">table_lookup.lua</a></td>
+		<td class="name" nowrap><a href="modules/table_lookup.lua.html">table_lookup.lua</a></td>
 		<td class="summary">Get values by key or value.</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/table_merge.lua.html">table_merge.lua</a></td>
+		<td class="name" nowrap><a href="modules/table_merge.lua.html">table_merge.lua</a></td>
 		<td class="summary">Merges two tables without mutating them</td>
 	</tr>
 	<tr>
-		<td class="name"  nowrap><a href="modules/wallmounted_to_facedir.lua.html">wallmounted_to_facedir.lua</a></td>
+		<td class="name" nowrap><a href="modules/wallmounted_to_facedir.lua.html">wallmounted_to_facedir.lua</a></td>
 		<td class="summary">Convert wallmounted to facedir and back param2</td>
 	</tr>
 </table>
 <h2>Topics</h2>
 <table class="module_list">
 	<tr>
-		<td class="name"  nowrap><a href="topics/README.md.html">README.md</a></td>
+		<td class="name" nowrap><a href="topics/README.md.html">README.md</a></td>
 		<td class="summary"></td>
 	</tr>
 </table>
 
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
-<div id="about">
-<i>generated by <a href="http://github.com/lunarmodules/LDoc">LDoc 1.5.0</a></i>
-<i style="float:right;">Last updated 2026-03-16 22:40:32 </i>
-</div> <!-- id="about" -->
+<footer id="about">
+
+
+<p>
+    <span>Powered by </span>
+    <a href="http://github.com/lunarmodules/ldoc">LDoc</a> ·
+    <a href="https://simplecss.org/">simplecss.org</a> ·
+    <a href="https://www.lua.org/">Lua</a> ·
+    <span title="Heart">🫀</span>
+</p>
+
+</footer> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
 </html>
+
