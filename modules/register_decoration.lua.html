@@ -104,7 +104,7 @@ luanti_utils
   <li><a href="../modules/migrate_inventory.lua.html">migrate_inventory.lua</a></li>
   <li><a href="../modules/migrate_node.lua.html">migrate_node.lua</a></li>
   <li><a href="../modules/modify_texture.lua.html">modify_texture.lua</a></li>
-  <li><strong>node_on_player_walk.lua</strong></li>
+  <li><a href="../modules/node_on_player_walk.lua.html">node_on_player_walk.lua</a></li>
   <li><a href="../modules/noop.lua.html">noop.lua</a></li>
   <li><a href="../modules/on_server_idle.lua.html">on_server_idle.lua</a></li>
   <li><a href="../modules/on_server_idle_each.lua.html">on_server_idle_each.lua</a></li>
@@ -113,7 +113,7 @@ luanti_utils
   <li><a href="../modules/on_server_idle_reduce.lua.html">on_server_idle_reduce.lua</a></li>
   <li><a href="../modules/persistent_queue.lua.html">persistent_queue.lua</a></li>
   <li><a href="../modules/queue.lua.html">queue.lua</a></li>
-  <li><a href="../modules/register_decoration.lua.html">register_decoration.lua</a></li>
+  <li><strong>register_decoration.lua</strong></li>
   <li><a href="../modules/register_node_copy.lua.html">register_node_copy.lua</a></li>
   <li><a href="../modules/register_on_player_walk.lua.html">register_on_player_walk.lua</a></li>
   <li><a href="../modules/table_lookup.lua.html">table_lookup.lua</a></li>
@@ -128,14 +128,13 @@ luanti_utils
 </details>
 
 
-<h2>Callbacks </h2>
+<h2>Functions</h2>
 <ul class="nowrap">
-    <li><a href="#on_player_walk_enter">on_player_walk_enter (params)</a></li>
-    <li><a href="#on_player_walk_leave">on_player_walk_leave (params)</a></li>
+    <li><a href="#returns...">returns... (decoration_def)</a></li>
 </ul>
-<h2>Parameters </h2>
+<h2>Tables</h2>
 <ul class="nowrap">
-    <li><a href="#params">params (pos, player, node)</a></li>
+    <li><a href="#DecorationDef">DecorationDef</a></li>
 </ul>
 
 <hr/>
@@ -144,104 +143,83 @@ luanti_utils
 
 <div id="content">
 
-<h1>Module <code>node_on_player_walk.lua</code></h1>
-<p>Node extension to support walk-related callbacks based on player position.</p>
-<p> Remember to dofile.
- </p>
+<h1>Module <code>register_decoration.lua</code></h1>
+<p>Wraps the register decoration and makes it easier to use gennotify.</p>
+<p>
+
+</p>
     <h3>Usage:</h3>
-        <pre class="example">luanti_utils.dofile(&quot;node_on_player_walk.lua&quot;)
-core.register_node(&quot;mymod:walkable_node&quot;, {
-    on_player_walk_enter = function(pos, player, node) end,
-    on_player_walk_leave = function(pos, player, node) end,
+        <pre class="example">local did = register_decoration({
+    name = &quot;test_lake&quot;,
+    place_on = {&quot;default:dirt_with_grass&quot;},
+    deco_type = &quot;simple&quot;,
+    place_nodes = {&quot;air&quot;},   -- we only want the position
+    fill_ratio = 1.0,
+    y_min = 0,
+    y_max = 20,
+    on_position = function(pos)
+        print(&quot;Picked lake position:&quot;, minetest.pos_to_string(pos))
+    end
 })
 </pre>
 
 
 
     <hr/>
-    <h2 class="section-header "><a name="Callbacks"></a>Callbacks </h2>
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
 
     <dl class="function">
     <dt>
-    <a href="#on_player_walk_enter" name = "on_player_walk_enter">#</a>
-    <strong>on_player_walk_enter (params)</strong>
+    <a href="#returns..." name = "returns...">#</a>
+    <strong>returns... (decoration_def)</strong>
     </dt>
     <dd>
-    Called when the player walks into the current node.
+
+
+
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">params</span>
-            <span class="types"><span class="type">...</span></span>
+        <li><span class="parameter">decoration_def</span>
+            <span class="types"><a class="type" href="../modules/register_decoration.lua.html#DecorationDef">DecorationDef</a></span>
 
 
 
         </li>
     </ul>
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">integer</span></span>
+        decoration_id The same value returned by <code>core.register_decoration</code>.
+    </ol>
 
 
-    <h3>See also:</h3>
-    <ul>
-         <a href="../modules/node_on_player_walk.lua.html#params">params</a>
-    </ul>
-
-
-</dd>
-    <dt>
-    <a href="#on_player_walk_leave" name = "on_player_walk_leave">#</a>
-    <strong>on_player_walk_leave (params)</strong>
-    </dt>
-    <dd>
-    Called when the player walks out of the current node.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">params</span>
-            <span class="types"><span class="type">...</span></span>
-
-
-
-        </li>
-    </ul>
-
-
-
-    <h3>See also:</h3>
-    <ul>
-         <a href="../modules/node_on_player_walk.lua.html#params">params</a>
-    </ul>
 
 
 </dd>
 </dl>
     <hr/>
-    <h2 class="section-header "><a name="Parameters"></a>Parameters </h2>
+    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
 
     <dl class="function">
     <dt>
-    <a href="#params" name = "params">#</a>
-    <strong>params (pos, player, node)</strong>
+    <a href="#DecorationDef" name = "DecorationDef">#</a>
+    <strong>DecorationDef</strong>
     </dt>
     <dd>
-    Both the enter and leave have the following function signature.
+    DecorationDef
+ Includes all core.decoration_definition parameters and extends them.
 
 
-    <h3>Parameters:</h3>
+    <h3>Fields:</h3>
     <ul>
-        <li><span class="parameter">pos</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-         Position of the node under the player.
-        </li>
-        <li><span class="parameter">player</span>
-            <span class="types"><span class="type">core.player</span></span>
-         The player walking over the node.
-        </li>
-        <li><span class="parameter">node</span>
-            <span class="types"><span class="type">core.node</span></span>
-         The node table as returned by core.get_node(pos).
+        <li><span class="parameter">on_position</span>
+            <span class="types"><span class="type">function</span></span>
+         Callback called with each selected position
+         (<em>optional</em>)
         </li>
     </ul>
 

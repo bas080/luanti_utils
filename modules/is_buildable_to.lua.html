@@ -100,11 +100,11 @@ luanti_utils
   <li><a href="../modules/extend_group.lua.html">extend_group.lua</a></li>
   <li><a href="../modules/extend_item.lua.html">extend_item.lua</a></li>
   <li><a href="../modules/init.lua.html">init.lua</a></li>
-  <li><a href="../modules/is_buildable_to.lua.html">is_buildable_to.lua</a></li>
+  <li><strong>is_buildable_to.lua</strong></li>
   <li><a href="../modules/migrate_inventory.lua.html">migrate_inventory.lua</a></li>
   <li><a href="../modules/migrate_node.lua.html">migrate_node.lua</a></li>
   <li><a href="../modules/modify_texture.lua.html">modify_texture.lua</a></li>
-  <li><strong>node_on_player_walk.lua</strong></li>
+  <li><a href="../modules/node_on_player_walk.lua.html">node_on_player_walk.lua</a></li>
   <li><a href="../modules/noop.lua.html">noop.lua</a></li>
   <li><a href="../modules/on_server_idle.lua.html">on_server_idle.lua</a></li>
   <li><a href="../modules/on_server_idle_each.lua.html">on_server_idle_each.lua</a></li>
@@ -128,14 +128,9 @@ luanti_utils
 </details>
 
 
-<h2>Callbacks </h2>
+<h2>Functions</h2>
 <ul class="nowrap">
-    <li><a href="#on_player_walk_enter">on_player_walk_enter (params)</a></li>
-    <li><a href="#on_player_walk_leave">on_player_walk_leave (params)</a></li>
-</ul>
-<h2>Parameters </h2>
-<ul class="nowrap">
-    <li><a href="#params">params (pos, player, node)</a></li>
+    <li><a href="#returns...">returns... (thing)</a></li>
 </ul>
 
 <hr/>
@@ -144,107 +139,46 @@ luanti_utils
 
 <div id="content">
 
-<h1>Module <code>node_on_player_walk.lua</code></h1>
-<p>Node extension to support walk-related callbacks based on player position.</p>
-<p> Remember to dofile.
- </p>
+<h1>Module <code>is_buildable_to.lua</code></h1>
+<p>Checks whether a node or position is buildable to.</p>
+<p>
+
+</p>
     <h3>Usage:</h3>
-        <pre class="example">luanti_utils.dofile(&quot;node_on_player_walk.lua&quot;)
-core.register_node(&quot;mymod:walkable_node&quot;, {
-    on_player_walk_enter = function(pos, player, node) end,
-    on_player_walk_leave = function(pos, player, node) end,
-})
+        <pre class="example">local buildable = is_buildable_to({x=0, y=10, z=0})
+local buildable_node = is_buildable_to({name=&quot;default:dirt_with_grass&quot;})
 </pre>
 
 
 
     <hr/>
-    <h2 class="section-header "><a name="Callbacks"></a>Callbacks </h2>
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
 
     <dl class="function">
     <dt>
-    <a href="#on_player_walk_enter" name = "on_player_walk_enter">#</a>
-    <strong>on_player_walk_enter (params)</strong>
+    <a href="#returns..." name = "returns...">#</a>
+    <strong>returns... (thing)</strong>
     </dt>
     <dd>
-    Called when the player walks into the current node.
+
+
+
 
 
     <h3>Parameters:</h3>
     <ul>
-        <li><span class="parameter">params</span>
-            <span class="types"><span class="type">...</span></span>
-
-
-
+        <li><span class="parameter">thing</span>
+            <span class="types"><span class="type">NodeOrPos</span></span>
+         A table representing either a node (with <code>name</code>) or a position <code>{x, y, z}</code>
         </li>
     </ul>
 
+    <h3>Returns:</h3>
+    <ol>
 
-
-    <h3>See also:</h3>
-    <ul>
-         <a href="../modules/node_on_player_walk.lua.html#params">params</a>
-    </ul>
-
-
-</dd>
-    <dt>
-    <a href="#on_player_walk_leave" name = "on_player_walk_leave">#</a>
-    <strong>on_player_walk_leave (params)</strong>
-    </dt>
-    <dd>
-    Called when the player walks out of the current node.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">params</span>
-            <span class="types"><span class="type">...</span></span>
-
-
-
-        </li>
-    </ul>
-
-
-
-    <h3>See also:</h3>
-    <ul>
-         <a href="../modules/node_on_player_walk.lua.html#params">params</a>
-    </ul>
-
-
-</dd>
-</dl>
-    <hr/>
-    <h2 class="section-header "><a name="Parameters"></a>Parameters </h2>
-
-    <dl class="function">
-    <dt>
-    <a href="#params" name = "params">#</a>
-    <strong>params (pos, player, node)</strong>
-    </dt>
-    <dd>
-    Both the enter and leave have the following function signature.
-
-
-    <h3>Parameters:</h3>
-    <ul>
-        <li><span class="parameter">pos</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
-         Position of the node under the player.
-        </li>
-        <li><span class="parameter">player</span>
-            <span class="types"><span class="type">core.player</span></span>
-         The player walking over the node.
-        </li>
-        <li><span class="parameter">node</span>
-            <span class="types"><span class="type">core.node</span></span>
-         The node table as returned by core.get_node(pos).
-        </li>
-    </ul>
-
+           <span class="types"><span class="type">boolean</span></span>
+        True if the node is buildable_to, false if not
+    </ol>
 
 
 
