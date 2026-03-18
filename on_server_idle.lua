@@ -13,7 +13,7 @@
 -- @tfield boolean is_busy False when idle
 local M = {}
 
-local Queue = luanti_utils.dofile('queue.lua')
+local Queue = luanti_utils.dofile("queue.lua")
 
 local TARGET_STEP = 0.1
 local EMA_ALPHA = 0.1
@@ -38,7 +38,9 @@ core.register_globalstep(function(dtime)
     M.is_idle = budget > 0
     M.is_busy = not M.is_idle
 
-    if M.is_busy then return end
+    if M.is_busy then
+        return
+    end
 
     local jobs_to_run = math.max(1, math.floor(budget / AVG_JOB_TIME))
 
@@ -64,7 +66,7 @@ end)
 -- @treturn function Wrapped function that schedules `fn` on idle.
 function M.wrap(task_fn)
     return function(...)
-        local args = {...}
+        local args = { ... }
         M.run(function()
             task_fn(table.unpack(args))
         end)

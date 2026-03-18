@@ -4,7 +4,7 @@
 --
 -- @module on_server_idle_filter.lua
 
-local reduce = luanti_utils.dofile('on_server_idle_reduce.lua')
+local reduce = luanti_utils.dofile("on_server_idle_reduce.lua")
 
 --- Filter items in `tbl` using `predicate`.
 --

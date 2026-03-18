@@ -16,34 +16,33 @@
 -- @treturn function by_key
 -- @treturn function by_value
 local function table_lookup(tbl)
-  local reverse = {}
+    local reverse = {}
 
-  for k, v in pairs(tbl) do
-    if reverse[v] ~= nil then
-      error(("duplicate value '%s' for keys '%s' and '%s'")
-        :format(v, reverse[v], k))
+    for k, v in pairs(tbl) do
+        if reverse[v] ~= nil then
+            error(("duplicate value '%s' for keys '%s' and '%s'"):format(v, reverse[v], k))
+        end
+
+        reverse[v] = k
     end
 
-    reverse[v] = k
-  end
+    --- Lookup value by key
+    -- @function by_key
+    -- @tparam any key
+    -- @treturn any
+    local function by_key(key)
+        return tbl[key]
+    end
 
-  --- Lookup value by key
-  -- @function by_key
-  -- @tparam any key
-  -- @treturn any
-  local function by_key(key)
-    return tbl[key]
-  end
+    --- Lookup key by value
+    -- @function by_value
+    -- @tparam any value
+    -- @treturn any
+    local function by_value(value)
+        return reverse[value]
+    end
 
-  --- Lookup key by value
-  -- @function by_value
-  -- @tparam any value
-  -- @treturn any
-  local function by_value(value)
-    return reverse[value]
-  end
-
-  return by_key, by_value
+    return by_key, by_value
 end
 
 return table_lookup

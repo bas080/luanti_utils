@@ -1,4 +1,3 @@
-
 ---
 -- Wraps the register decoration and makes it easier to use gennotify.
 --
@@ -34,11 +33,11 @@ local function register_decoration(def)
     assert(def.name, "Decoration must have a name")
 
     -- Simple fallback in case we just want positions.
-    def.decoration = def.decoration or {"air"}
+    def.decoration = def.decoration or { "air" }
 
     -- store def for later registration
     if def.on_position then
-      _pending_defs[#_pending_defs + 1] = def
+        _pending_defs[#_pending_defs + 1] = def
     end
 
     -- return placeholder (def.name)
@@ -51,11 +50,11 @@ core.register_on_mods_loaded(function()
     for idx, def in ipairs(_pending_defs) do
         -- register the decoration
 
-    		local did = core.get_decoration_id(def.name)
+        local did = core.get_decoration_id(def.name)
 
         assert(did, "Failed to register decoration: " .. def.name)
 
-    		dids[idx] = did
+        dids[idx] = did
 
         -- store callback
         _decoration_callbacks[did] = def.on_position

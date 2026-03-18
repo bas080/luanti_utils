@@ -18,8 +18,8 @@ local function debounce(delay, fn)
     -- @tparam ... args Forwards these args to the fn passed to `debounce`.
     --
     -- @treturn job Which allows the user to cancel.
-    local function debounced (...)
-        local args = {...}
+    local function debounced(...)
+        local args = { ... }
         if job then
             job:cancel()
         end
@@ -41,7 +41,6 @@ local function debounce(delay, fn)
     end
 
     return debounced
-
 end
 
 return debounce

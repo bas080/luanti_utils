@@ -21,7 +21,7 @@ local function Queue(key, max_size)
             q = {},
             head = 1,
             tail = 0,
-            size = 0
+            size = 0,
         }
     end
 

@@ -1,13 +1,13 @@
 ---
 -- This module simply returns the controls mod as is.
--- 
+--
 -- [https://content.luanti.org/packages/mt-mods/controls/](https://content.luanti.org/packages/mt-mods/controls/)
 --
 -- @module controls.lua
 --
 -- @usage
 -- local controls = luanti_utils.dofile('controls.lua')
--- 
+--
 -- controls.register_on_press(function(player, key)
 --     -- Called when a key is pressed
 --     -- player: player object
@@ -28,7 +28,6 @@
 --     -- length: length of time key was held in seconds
 -- end)
 
-
 if not minetest.get_modpath("controls") then
     error("controls mod is required but not found")
 end
@@ -43,17 +42,17 @@ end
 -- @function controls.register_on_press
 -- @tparam core.player player
 -- @tparam string key
- 
+
 ---
 -- @function controls.register_on_hold
 -- @tparam core.player player
 -- @tparam string key
--- @tparam integer length 
+-- @tparam integer length
 
 ---
 -- @function controls.register_on_release
 -- @tparam core.player player
 -- @tparam string key
--- @tparam integer length 
+-- @tparam integer length
 
 return controls

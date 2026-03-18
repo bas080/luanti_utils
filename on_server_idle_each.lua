@@ -4,7 +4,7 @@
 --
 -- @module on_server_idle_each.lua
 
-local reduce = luanti_utils.dofile('on_server_idle_reduce.lua')
+local reduce = luanti_utils.dofile("on_server_idle_reduce.lua")
 
 --- Iterate over each item in a table.
 --
@@ -15,9 +15,8 @@ local reduce = luanti_utils.dofile('on_server_idle_reduce.lua')
 local function each(tbl, fn, done)
     return reduce(tbl, function(_, item)
         fn(item)
-        return nil  -- accumulator unused
+        return nil -- accumulator unused
     end, nil, done)
 end
 
 return each
-

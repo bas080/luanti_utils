@@ -1,12 +1,12 @@
 --- Map over a table in small increments during server idle frames.
 --
 -- `on_server_idle_reduce.lua`
--- 
+--
 -- This avoids blocking the server for too long when transforming large tables.
 --
 -- @module on_server_idle_map.lua
 
-local reduce = luanti_utils.dofile('on_server_idle_reduce.lua')
+local reduce = luanti_utils.dofile("on_server_idle_reduce.lua")
 
 --- Map each value in `tbl` through `fn`.
 --

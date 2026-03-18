@@ -1,8 +1,8 @@
 --- Node extension to support walk-related callbacks based on player position.
 -- Remember to dofile.
--- 
+--
 -- @module node_on_player_walk.lua
--- 
+--
 -- @usage
 -- luanti_utils.dofile("node_on_player_walk.lua")
 -- core.register_node("mymod:walkable_node", {
@@ -32,13 +32,13 @@
 -- @tparam core.player player The player walking over the node.
 -- @tparam core.node node The node table as returned by core.get_node(pos).
 
-local register_on_player_walk = luanti_utils.dofile('register_on_player_walk.lua')
+local register_on_player_walk = luanti_utils.dofile("register_on_player_walk.lua")
 
 -- TODO: Use the lighter get_node_raw
 register_on_player_walk(function(pos, prev, player)
     -- Node underneath instead
-    pos = vector.add(pos, {x=0,y=-0.1,z=0})
-    prev = vector.add(prev, {x=0,y=-0.1,z=0})
+    pos = vector.add(pos, { x = 0, y = -0.1, z = 0 })
+    prev = vector.add(prev, { x = 0, y = -0.1, z = 0 })
 
     -- Leave callback
     if prev then

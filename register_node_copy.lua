@@ -6,7 +6,7 @@
 -- @tparam string copied_node_name The name of the node to copy.
 -- @tparam define define_fn Callback with arg being the node def that is being copied.
 -- @treturn nil
--- 
+--
 -- @usage
 -- local register_node_copy = require("register_node")
 -- register_node("mymod:leaves", "default:leaves", function(default_leaves) return {
@@ -22,7 +22,7 @@
 -- @function define
 -- @tparam core.node_definition copied_node_def
 
-local table_merge = luanti_utils.dofile('table_merge.lua')
+local table_merge = luanti_utils.dofile("table_merge.lua")
 
 local function register_node_copy(node_name, copied_node_name, def_fn)
     -- Make a deep copy to prevent external mutation

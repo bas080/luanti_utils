@@ -16,31 +16,39 @@
 
 --- Called for each item in the provided table.
 -- @function on_item
--- @tparam any accumulated 
+-- @tparam any accumulated
 -- @tparam any item
 
 --- Called after all items have been iterated.
 -- @function on_done
 -- @tparam any accumulated
 
-local on_server_idle = luanti_utils.dofile('on_server_idle.lua')
+local on_server_idle = luanti_utils.dofile("on_server_idle.lua")
 
 local function reduce(tbl, fn, acc, done)
     local job = {}
     local running, i = true, 1
 
-    function job:cancel() running = false end
+    function job:cancel()
+        running = false
+    end
 
     local function step()
-        if not running then return end
+        if not running then
+            return
+        end
         if i > #tbl then
-            if done then done(acc) end
+            if done then
+                done(acc)
+            end
             return
         end
         local item = tbl[i]
         i = i + 1
         on_server_idle.run(function()
-            if not running then return end
+            if not running then
+                return
+            end
             acc = fn(acc, item)
             step()
         end)

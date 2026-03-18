@@ -24,9 +24,11 @@ local dofile_cache = {}
 -- local extend_item = luanti_utils.dofile("extend_item.lua")
 -- local extend_group = luanti_utils.dofile("extend_group.lua")
 function luanti_utils.dofile(module)
-  if dofile_cache[module] then return dofile_cache[module] end
+    if dofile_cache[module] then
+        return dofile_cache[module]
+    end
 
-  dofile_cache[module] = dofile(modpath .. '/' .. module)
+    dofile_cache[module] = dofile(modpath .. "/" .. module)
 
-  return dofile_cache[module]
+    return dofile_cache[module]
 end

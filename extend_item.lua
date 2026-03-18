@@ -22,35 +22,34 @@
 -- @tparam string node_name Name of the node in `core.registered_nodes`
 -- @tparam extend_def extend_def Table of callbacks to extend
 -- @treturn nil
-local table_merge = luanti_utils.dofile('table_merge.lua')
+local table_merge = luanti_utils.dofile("table_merge.lua")
 
 local items = table_merge(core.registered_nodes, core.registered_items)
 
 function extend_item(item_name, extend_def, items_subset)
-  -- Get the original node definition
-  local item_def = items_subset or items[item_name]
+    -- Get the original node definition
+    local item_def = items_subset or items[item_name]
 
-  local override_def = {}
+    local override_def = {}
 
-  for key, extended_callback in pairs(extend_def) do
-    local original_callback = item_def[key]
+    for key, extended_callback in pairs(extend_def) do
+        local original_callback = item_def[key]
 
-    override_def[key] = function(...)
-      local next = nil
+        override_def[key] = function(...)
+            local next = nil
 
-      -- Only define next if original callback exists
-      if original_callback then
-        next = function(...)
-          return original_callback(...)
+            -- Only define next if original callback exists
+            if original_callback then
+                next = function(...)
+                    return original_callback(...)
+                end
+            end
+
+            return extended_callback(next, ...)
         end
-      end
-
-      return extended_callback(next, ...)
     end
-  end
 
-  core.override_item(item_name, override_def)
+    core.override_item(item_name, override_def)
 end
 
 return extend_item
-

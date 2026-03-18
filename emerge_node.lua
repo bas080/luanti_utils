@@ -21,7 +21,7 @@
 -- emerge_node({x=0, y=10, z=0}, function(node, pos)
 --     print("Node at", pos.x, pos.y, pos.z, "is", node.name)
 -- end)
-local on_server_idle = luanti_utils.dofile('on_server_idle.lua')
+local on_server_idle = luanti_utils.dofile("on_server_idle.lua")
 
 local function emerge_node(pos, cb)
     local existing = minetest.get_node_or_nil(pos)
