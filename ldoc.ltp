@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+
         .parameter {
             color: var(--code);
         }
@@ -28,6 +29,7 @@
         h1,h2,h3,h4 {
             margin-top: 1em;
             margin-bottom: 0.1em;
+            color: var(--border)
         }
 
         #content strong, #content a[name] {
@@ -38,7 +40,7 @@
             font-size: 1.85rem;
         }
 
-        #content .function a {
+        #content .function dt a {
             text-decoration: none;
             opacity: 0.5;
         }
@@ -84,11 +86,11 @@
 
 <div id="navigation">
 
-<h1>
+<p>
 <a class="home" href="../$(ldoc.output).html">
 $(ldoc.project)
 </a>
-</h1>
+</p>
 
 <details>
 <summary>Navigation</summary>
@@ -146,8 +148,6 @@ $(ldoc.project)
 # end
 # end
 
-<hr/>
-
 </div>
 
 <div id="content">
@@ -156,6 +156,7 @@ $(ldoc.project)
     $(ldoc.body)
 # elseif module then -- module documentation
 <h1>$(ldoc.module_typename(module)) <code>$(module.name)</code></h1>
+<p><a href="https://github.com/bas080/luanti_utils/blob/master/$(module.name)">📑 Source</a></p>
 <p>$(M(module.summary,module))</p>
 <p>$(M(module.description,module))</p>
 #   if module.tags.include then
@@ -163,7 +164,7 @@ $(ldoc.project)
 #   end
 #   if module.see then
 #     local li,il = use_li(module.see)
-    <h3>See also:</h3>
+    <em>See also</em>
     <ul>
 #     for see in iter(module.see) do
          $(li)<a href="$(ldoc.href(see))">$(see.label)</a>$(il)
@@ -172,7 +173,7 @@ $(ldoc.project)
 #   end -- if see
 #   if module.usage then
 #     local li,il = use_li(module.usage)
-    <h3>Usage:</h3>
+    <h3>Usage</h3>
 #     for usage in iter(module.usage) do
         <pre class="example">$(ldoc.escape(usage))</pre>
 #     end -- for
@@ -210,7 +211,6 @@ $(ldoc.project)
 # for kind, items in module.kinds() do
 #   local kitem = module.kinds:get_item(kind)
 #   local has_description = kitem and ldoc.descript(kitem) ~= ""
-    <hr/>
     <h2 class="section-header $(has_description and 'has-description')"><a name="$(no_spaces(kind))"></a>$(kind)</h2>
     $(M(module.kinds:get_section_description(kind),nil))
 #   if kitem then
@@ -227,6 +227,7 @@ $(ldoc.project)
     <dl class="function">
 #  for item in items() do
     <dt>
+    <hr/>
     <a href="#$(item.name)" name = "$(item.name)">#</a>
     <strong>$(display_name(item))</strong>
 #   if ldoc.prettify_files and ldoc.is_file_prettified[item.module.file.filename] then
@@ -254,7 +255,7 @@ $(ldoc.project)
 #  if show_parms and item.params and #item.params > 0 then
 #    local subnames = module.kinds:type_of(item).subnames
 #    if subnames then
-    <h3>$(subnames):</h3>
+    <h3>$(subnames)</h3>
 #    end
     <ul>
 #   for parm in iter(item.params) do
@@ -288,7 +289,7 @@ $(ldoc.project)
 #   end -- if params
 
 #  if show_return and item.retgroups then local groups = item.retgroups
-    <h3>Returns:</h3>
+    <h3>Returns</h3>
 #   for i,group in ldoc.ipairs(groups) do local li,il = use_li(group)
     <ol>
 #   for r in group:iter() do local type, ctypes = item:return_type(r); local rt = ldoc.typename(type)
@@ -315,13 +316,13 @@ $(ldoc.project)
 #   end -- if returns
 
 #   if show_return and item.raise then
-    <h3>Raises:</h3>
+    <h3>Raises</h3>
     $(M(item.raise,item))
 #   end
 
 #   if item.see then
 #     local li,il = use_li(item.see)
-    <h3>See also:</h3>
+    <em>See also</em>
     <ul>
 #     for see in iter(item.see) do
          $(li)<a href="$(ldoc.href(see))">$(see.label)</a>$(il)

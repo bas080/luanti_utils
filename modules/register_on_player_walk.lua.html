@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+
         .parameter {
             color: var(--code);
         }
@@ -28,6 +29,7 @@
         h1,h2,h3,h4 {
             margin-top: 1em;
             margin-bottom: 0.1em;
+            color: var(--border)
         }
 
         #content strong, #content a[name] {
@@ -38,7 +40,7 @@
             font-size: 1.85rem;
         }
 
-        #content .function a {
+        #content .function dt a {
             text-decoration: none;
             opacity: 0.5;
         }
@@ -78,11 +80,11 @@
 
 <div id="navigation">
 
-<h1>
+<p>
 <a class="home" href="../index.html">
 luanti_utils
 </a>
-</h1>
+</p>
 
 <details>
 <summary>Navigation</summary>
@@ -137,19 +139,18 @@ luanti_utils
     <li><a href="#on_walk">on_walk (pos, prev_pos, player)</a></li>
 </ul>
 
-<hr/>
-
 </div>
 
 <div id="content">
 
 <h1>Module <code>register_on_player_walk.lua</code></h1>
+<p><a href="https://github.com/bas080/luanti_utils/blob/master/register_on_player_walk.lua">📑 Source</a></p>
 <p>Global player walk callbacks
  This module allows other modules to register callbacks that run
  whenever a player moves from one node to another.</p>
 <p> Callbacks are triggered only when the player moves to a different node.
  The module automatically tracks player positions and cleans up on leave.</p>
-    <h3>Usage:</h3>
+    <h3>Usage</h3>
         <pre class="example">register_on_player_walk(function(pos, prev_pos, player)
     -- pos: current node position
     -- prev_pos: previous node position
@@ -159,11 +160,11 @@ end)
 
 
 
-    <hr/>
     <h2 class="section-header "><a name="Functions"></a>Functions</h2>
 
     <dl class="function">
     <dt>
+    <hr/>
     <a href="#returns..." name = "returns...">#</a>
     <strong>returns... (on_walk)</strong>
     </dt>
@@ -173,7 +174,7 @@ end)
 
 
 
-    <h3>Parameters:</h3>
+    <h3>Parameters</h3>
     <ul>
         <li><span class="parameter">on_walk</span>
             <span class="types"><span class="type">on_walk</span></span>
@@ -187,11 +188,11 @@ end)
 
 </dd>
 </dl>
-    <hr/>
     <h2 class="section-header "><a name="Callback"></a>Callback </h2>
 
     <dl class="function">
     <dt>
+    <hr/>
     <a href="#on_walk" name = "on_walk">#</a>
     <strong>on_walk (pos, prev_pos, player)</strong>
     </dt>
@@ -201,7 +202,7 @@ end)
 
 
 
-    <h3>Parameters:</h3>
+    <h3>Parameters</h3>
     <ul>
         <li><span class="parameter">pos</span>
             <span class="types"><span class="type">core.vector</span></span>

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+
         .parameter {
             color: var(--code);
         }
@@ -28,6 +29,7 @@
         h1,h2,h3,h4 {
             margin-top: 1em;
             margin-bottom: 0.1em;
+            color: var(--border)
         }
 
         #content strong, #content a[name] {
@@ -38,7 +40,7 @@
             font-size: 1.85rem;
         }
 
-        #content .function a {
+        #content .function dt a {
             text-decoration: none;
             opacity: 0.5;
         }
@@ -78,11 +80,11 @@
 
 <div id="navigation">
 
-<h1>
+<p>
 <a class="home" href="../index.html">
 luanti_utils
 </a>
-</h1>
+</p>
 
 <details>
 <summary>Navigation</summary>
@@ -135,18 +137,17 @@ luanti_utils
     <li><a href="#by_value">by_value (value)</a></li>
 </ul>
 
-<hr/>
-
 </div>
 
 <div id="content">
 
 <h1>Module <code>table_lookup.lua</code></h1>
+<p><a href="https://github.com/bas080/luanti_utils/blob/master/table_lookup.lua">📑 Source</a></p>
 <p>Get values by key or value.</p>
 <p>
 
 </p>
-    <h3>Usage:</h3>
+    <h3>Usage</h3>
         <pre class="example">local by_key, by_value = table_lookup({
   &quot;red&quot; = &quot;wool:red&quot;,
   &quot;blue&quot; = &quot;wool:blue&quot;,
@@ -158,11 +159,11 @@ by_value(&quot;wool:blue&quot;) -- &quot;blue&quot;
 
 
 
-    <hr/>
     <h2 class="section-header "><a name="Functions"></a>Functions</h2>
 
     <dl class="function">
     <dt>
+    <hr/>
     <a href="#returns..." name = "returns...">#</a>
     <strong>returns... (tbl)</strong>
     </dt>
@@ -172,7 +173,7 @@ by_value(&quot;wool:blue&quot;) -- &quot;blue&quot;
 
 
 
-    <h3>Parameters:</h3>
+    <h3>Parameters</h3>
     <ul>
         <li><span class="parameter">tbl</span>
             <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
@@ -182,7 +183,7 @@ by_value(&quot;wool:blue&quot;) -- &quot;blue&quot;
         </li>
     </ul>
 
-    <h3>Returns:</h3>
+    <h3>Returns</h3>
     <ol>
         <li>
            <span class="types"><span class="type">function</span></span>
@@ -197,6 +198,7 @@ by_value(&quot;wool:blue&quot;) -- &quot;blue&quot;
 
 </dd>
     <dt>
+    <hr/>
     <a href="#by_key" name = "by_key">#</a>
     <strong>by_key (key)</strong>
     </dt>
@@ -204,7 +206,7 @@ by_value(&quot;wool:blue&quot;) -- &quot;blue&quot;
     Lookup value by key
 
 
-    <h3>Parameters:</h3>
+    <h3>Parameters</h3>
     <ul>
         <li><span class="parameter">key</span>
             <span class="types"><span class="type">any</span></span>
@@ -214,7 +216,7 @@ by_value(&quot;wool:blue&quot;) -- &quot;blue&quot;
         </li>
     </ul>
 
-    <h3>Returns:</h3>
+    <h3>Returns</h3>
     <ol>
 
            <span class="types"><span class="type">any</span></span>
@@ -228,6 +230,7 @@ by_value(&quot;wool:blue&quot;) -- &quot;blue&quot;
 
 </dd>
     <dt>
+    <hr/>
     <a href="#by_value" name = "by_value">#</a>
     <strong>by_value (value)</strong>
     </dt>
@@ -235,7 +238,7 @@ by_value(&quot;wool:blue&quot;) -- &quot;blue&quot;
     Lookup key by value
 
 
-    <h3>Parameters:</h3>
+    <h3>Parameters</h3>
     <ul>
         <li><span class="parameter">value</span>
             <span class="types"><span class="type">any</span></span>
@@ -245,7 +248,7 @@ by_value(&quot;wool:blue&quot;) -- &quot;blue&quot;
         </li>
     </ul>
 
-    <h3>Returns:</h3>
+    <h3>Returns</h3>
     <ol>
 
            <span class="types"><span class="type">any</span></span>

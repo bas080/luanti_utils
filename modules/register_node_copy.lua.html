@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+
         .parameter {
             color: var(--code);
         }
@@ -28,6 +29,7 @@
         h1,h2,h3,h4 {
             margin-top: 1em;
             margin-bottom: 0.1em;
+            color: var(--border)
         }
 
         #content strong, #content a[name] {
@@ -38,7 +40,7 @@
             font-size: 1.85rem;
         }
 
-        #content .function a {
+        #content .function dt a {
             text-decoration: none;
             opacity: 0.5;
         }
@@ -78,11 +80,11 @@
 
 <div id="navigation">
 
-<h1>
+<p>
 <a class="home" href="../index.html">
 luanti_utils
 </a>
-</h1>
+</p>
 
 <details>
 <summary>Navigation</summary>
@@ -137,16 +139,15 @@ luanti_utils
     <li><a href="#define">define (copied_node_def)</a></li>
 </ul>
 
-<hr/>
-
 </div>
 
 <div id="content">
 
 <h1>Module <code>register_node_copy.lua</code></h1>
+<p><a href="https://github.com/bas080/luanti_utils/blob/master/register_node_copy.lua">📑 Source</a></p>
 <p>Re-use existing node definitions and build ontop of them.</p>
 <p> The return value is merged into a copy of the node definition before registering.</p>
-    <h3>Usage:</h3>
+    <h3>Usage</h3>
         <pre class="example">local register_node_copy = require(&quot;register_node&quot;)
 register_node(&quot;mymod:leaves&quot;, &quot;default:leaves&quot;, function(default_leaves) return {
     -- Overwrite certain values.
@@ -157,11 +158,11 @@ register_node(&quot;mymod:leaves&quot;, &quot;default:leaves&quot;, function(def
 
 
 
-    <hr/>
     <h2 class="section-header "><a name="Functions"></a>Functions</h2>
 
     <dl class="function">
     <dt>
+    <hr/>
     <a href="#returns..." name = "returns...">#</a>
     <strong>returns... (node_name, copied_node_name, define_fn)</strong>
     </dt>
@@ -171,7 +172,7 @@ register_node(&quot;mymod:leaves&quot;, &quot;default:leaves&quot;, function(def
 
 
 
-    <h3>Parameters:</h3>
+    <h3>Parameters</h3>
     <ul>
         <li><span class="parameter">node_name</span>
             <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
@@ -187,7 +188,7 @@ register_node(&quot;mymod:leaves&quot;, &quot;default:leaves&quot;, function(def
         </li>
     </ul>
 
-    <h3>Returns:</h3>
+    <h3>Returns</h3>
     <ol>
 
            <span class="types"><span class="type">nil</span></span>
@@ -201,11 +202,11 @@ register_node(&quot;mymod:leaves&quot;, &quot;default:leaves&quot;, function(def
 
 </dd>
 </dl>
-    <hr/>
     <h2 class="section-header "><a name="Callbacks"></a>Callbacks </h2>
 
     <dl class="function">
     <dt>
+    <hr/>
     <a href="#define" name = "define">#</a>
     <strong>define (copied_node_def)</strong>
     </dt>
@@ -215,7 +216,7 @@ register_node(&quot;mymod:leaves&quot;, &quot;default:leaves&quot;, function(def
 
 
 
-    <h3>Parameters:</h3>
+    <h3>Parameters</h3>
     <ul>
         <li><span class="parameter">copied_node_def</span>
             <span class="types"><span class="type">core.node_definition</span></span>

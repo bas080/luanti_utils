@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+
         .parameter {
             color: var(--code);
         }
@@ -28,6 +29,7 @@
         h1,h2,h3,h4 {
             margin-top: 1em;
             margin-bottom: 0.1em;
+            color: var(--border)
         }
 
         #content strong, #content a[name] {
@@ -38,7 +40,7 @@
             font-size: 1.85rem;
         }
 
-        #content .function a {
+        #content .function dt a {
             text-decoration: none;
             opacity: 0.5;
         }
@@ -78,11 +80,11 @@
 
 <div id="navigation">
 
-<h1>
+<p>
 <a class="home" href="../index.html">
 luanti_utils
 </a>
-</h1>
+</p>
 
 <details>
 <summary>Navigation</summary>
@@ -134,18 +136,17 @@ luanti_utils
     <li><a href="#to_wallmounted">to_wallmounted (facedir)</a></li>
 </ul>
 
-<hr/>
-
 </div>
 
 <div id="content">
 
 <h1>Module <code>wallmounted_to_facedir.lua</code></h1>
+<p><a href="https://github.com/bas080/luanti_utils/blob/master/wallmounted_to_facedir.lua">📑 Source</a></p>
 <p>Convert wallmounted to facedir and back param2</p>
 <p>
 
 </p>
-    <h3>Usage:</h3>
+    <h3>Usage</h3>
         <pre class="example">local to_facedir, to_wallmounted = luanti_utils(&apos;wallmounted_to_facedir.lua&apos;)
 to_facedir(default_sign.param2) -- Calculate the facedir equivalent for wallmounted sign.
 to_wallmounted(vine_param2) -- Calculate wallmounted equivalent of facedir vine.
@@ -153,11 +154,11 @@ to_wallmounted(vine_param2) -- Calculate wallmounted equivalent of facedir vine.
 
 
 
-    <hr/>
     <h2 class="section-header "><a name="Functions"></a>Functions</h2>
 
     <dl class="function">
     <dt>
+    <hr/>
     <a href="#to_facedir" name = "to_facedir">#</a>
     <strong>to_facedir (wallmounted)</strong>
     </dt>
@@ -167,7 +168,7 @@ to_wallmounted(vine_param2) -- Calculate wallmounted equivalent of facedir vine.
 
 
 
-    <h3>Parameters:</h3>
+    <h3>Parameters</h3>
     <ul>
         <li><span class="parameter">wallmounted</span>
             <span class="types"><span class="type">integer</span></span>
@@ -177,7 +178,7 @@ to_wallmounted(vine_param2) -- Calculate wallmounted equivalent of facedir vine.
         </li>
     </ul>
 
-    <h3>Returns:</h3>
+    <h3>Returns</h3>
     <ol>
 
            <span class="types"><span class="type">integer</span></span>
@@ -189,6 +190,7 @@ to_wallmounted(vine_param2) -- Calculate wallmounted equivalent of facedir vine.
 
 </dd>
     <dt>
+    <hr/>
     <a href="#to_wallmounted" name = "to_wallmounted">#</a>
     <strong>to_wallmounted (facedir)</strong>
     </dt>
@@ -198,7 +200,7 @@ to_wallmounted(vine_param2) -- Calculate wallmounted equivalent of facedir vine.
 
 
 
-    <h3>Parameters:</h3>
+    <h3>Parameters</h3>
     <ul>
         <li><span class="parameter">facedir</span>
             <span class="types"><span class="type">integer</span></span>
@@ -208,7 +210,7 @@ to_wallmounted(vine_param2) -- Calculate wallmounted equivalent of facedir vine.
         </li>
     </ul>
 
-    <h3>Returns:</h3>
+    <h3>Returns</h3>
     <ol>
 
            <span class="types"><span class="type">integer</span></span>

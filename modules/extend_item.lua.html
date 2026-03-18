@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+
         .parameter {
             color: var(--code);
         }
@@ -28,6 +29,7 @@
         h1,h2,h3,h4 {
             margin-top: 1em;
             margin-bottom: 0.1em;
+            color: var(--border)
         }
 
         #content strong, #content a[name] {
@@ -38,7 +40,7 @@
             font-size: 1.85rem;
         }
 
-        #content .function a {
+        #content .function dt a {
             text-decoration: none;
             opacity: 0.5;
         }
@@ -78,11 +80,11 @@
 
 <div id="navigation">
 
-<h1>
+<p>
 <a class="home" href="../index.html">
 luanti_utils
 </a>
-</h1>
+</p>
 
 <details>
 <summary>Navigation</summary>
@@ -133,22 +135,21 @@ luanti_utils
     <li><a href="#returns...">returns... (node_name, extend_def)</a></li>
 </ul>
 
-<hr/>
-
 </div>
 
 <div id="content">
 
 <h1>Module <code>extend_item.lua</code></h1>
+<p><a href="https://github.com/bas080/luanti_utils/blob/master/extend_item.lua">📑 Source</a></p>
 <p>Extend callbacks of a registered node by wrapping them.</p>
 <p> Allows injecting behavior before/after an existing callback while still
  optionally calling the original implementation via next.
  This works on boths nodes and items as it uses core.override_item under the hood.</p>
-    <h3>See also:</h3>
+    <em>See also</em>
     <ul>
          <a href="../modules/extend_function.lua.html#">extend_function.lua</a>
     </ul>
-    <h3>Usage:</h3>
+    <h3>Usage</h3>
         <pre class="example">extend_item(&quot;default:stone&quot;, {
   on_punch = function(next, pos, node, puncher, pointed_thing)
     minetest.chat_send_all(&quot;Stone punched!&quot;)
@@ -161,11 +162,11 @@ luanti_utils
 
 
 
-    <hr/>
     <h2 class="section-header "><a name="Functions"></a>Functions</h2>
 
     <dl class="function">
     <dt>
+    <hr/>
     <a href="#returns..." name = "returns...">#</a>
     <strong>returns... (node_name, extend_def)</strong>
     </dt>
@@ -175,7 +176,7 @@ luanti_utils
 
 
 
-    <h3>Parameters:</h3>
+    <h3>Parameters</h3>
     <ul>
         <li><span class="parameter">node_name</span>
             <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
@@ -187,7 +188,7 @@ luanti_utils
         </li>
     </ul>
 
-    <h3>Returns:</h3>
+    <h3>Returns</h3>
     <ol>
 
            <span class="types"><span class="type">nil</span></span>

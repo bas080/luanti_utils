@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+
         .parameter {
             color: var(--code);
         }
@@ -28,6 +29,7 @@
         h1,h2,h3,h4 {
             margin-top: 1em;
             margin-bottom: 0.1em;
+            color: var(--border)
         }
 
         #content strong, #content a[name] {
@@ -38,7 +40,7 @@
             font-size: 1.85rem;
         }
 
-        #content .function a {
+        #content .function dt a {
             text-decoration: none;
             opacity: 0.5;
         }
@@ -78,11 +80,11 @@
 
 <div id="navigation">
 
-<h1>
+<p>
 <a class="home" href="../index.html">
 luanti_utils
 </a>
-</h1>
+</p>
 
 <details>
 <summary>Navigation</summary>
@@ -138,24 +140,23 @@ luanti_utils
     <li><a href="#on_done">on_done (accumulated)</a></li>
 </ul>
 
-<hr/>
-
 </div>
 
 <div id="content">
 
 <h1>Module <code>on_server_idle_reduce.lua</code></h1>
+<p><a href="https://github.com/bas080/luanti_utils/blob/master/on_server_idle_reduce.lua">📑 Source</a></p>
 <p>Reduce a table asynchronously using idle callbacks.</p>
 <p> This helper uses <a href="../modules/on_server_idle.lua.html#">on_server_idle.lua</a> to process each element over multiple frames,
  preventing long-running loops from causing lag.</p>
 
 
 
-    <hr/>
     <h2 class="section-header "><a name="Functions"></a>Functions</h2>
 
     <dl class="function">
     <dt>
+    <hr/>
     <a href="#returns..." name = "returns...">#</a>
     <strong>returns... (tbl, on_item, Initial[, on_done])</strong>
     </dt>
@@ -165,7 +166,7 @@ luanti_utils
 
 
 
-    <h3>Parameters:</h3>
+    <h3>Parameters</h3>
     <ul>
         <li><span class="parameter">tbl</span>
             <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
@@ -186,7 +187,7 @@ luanti_utils
         </li>
     </ul>
 
-    <h3>Returns:</h3>
+    <h3>Returns</h3>
     <ol>
 
            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
@@ -198,11 +199,11 @@ luanti_utils
 
 </dd>
 </dl>
-    <hr/>
     <h2 class="section-header "><a name="Callbacks"></a>Callbacks </h2>
 
     <dl class="function">
     <dt>
+    <hr/>
     <a href="#on_item" name = "on_item">#</a>
     <strong>on_item (accumulated, item)</strong>
     </dt>
@@ -210,7 +211,7 @@ luanti_utils
     Called for each item in the provided table.
 
 
-    <h3>Parameters:</h3>
+    <h3>Parameters</h3>
     <ul>
         <li><span class="parameter">accumulated</span>
             <span class="types"><span class="type">any</span></span>
@@ -232,6 +233,7 @@ luanti_utils
 
 </dd>
     <dt>
+    <hr/>
     <a href="#on_done" name = "on_done">#</a>
     <strong>on_done (accumulated)</strong>
     </dt>
@@ -239,7 +241,7 @@ luanti_utils
     Called after all items have been iterated.
 
 
-    <h3>Parameters:</h3>
+    <h3>Parameters</h3>
     <ul>
         <li><span class="parameter">accumulated</span>
             <span class="types"><span class="type">any</span></span>

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+
         .parameter {
             color: var(--code);
         }
@@ -28,6 +29,7 @@
         h1,h2,h3,h4 {
             margin-top: 1em;
             margin-bottom: 0.1em;
+            color: var(--border)
         }
 
         #content strong, #content a[name] {
@@ -38,7 +40,7 @@
             font-size: 1.85rem;
         }
 
-        #content .function a {
+        #content .function dt a {
             text-decoration: none;
             opacity: 0.5;
         }
@@ -78,11 +80,11 @@
 
 <div id="navigation">
 
-<h1>
+<p>
 <a class="home" href="../index.html">
 luanti_utils
 </a>
-</h1>
+</p>
 
 <details>
 <summary>Navigation</summary>
@@ -138,17 +140,16 @@ luanti_utils
     <li><a href="#params">params (pos, player, node)</a></li>
 </ul>
 
-<hr/>
-
 </div>
 
 <div id="content">
 
 <h1>Module <code>node_on_player_walk.lua</code></h1>
+<p><a href="https://github.com/bas080/luanti_utils/blob/master/node_on_player_walk.lua">📑 Source</a></p>
 <p>Node extension to support walk-related callbacks based on player position.</p>
 <p> Remember to dofile.
  </p>
-    <h3>Usage:</h3>
+    <h3>Usage</h3>
         <pre class="example">luanti_utils.dofile(&quot;node_on_player_walk.lua&quot;)
 core.register_node(&quot;mymod:walkable_node&quot;, {
     on_player_walk_enter = function(pos, player, node) end,
@@ -158,11 +159,11 @@ core.register_node(&quot;mymod:walkable_node&quot;, {
 
 
 
-    <hr/>
     <h2 class="section-header "><a name="Callbacks"></a>Callbacks </h2>
 
     <dl class="function">
     <dt>
+    <hr/>
     <a href="#on_player_walk_enter" name = "on_player_walk_enter">#</a>
     <strong>on_player_walk_enter (params)</strong>
     </dt>
@@ -170,7 +171,7 @@ core.register_node(&quot;mymod:walkable_node&quot;, {
     Called when the player walks into the current node.
 
 
-    <h3>Parameters:</h3>
+    <h3>Parameters</h3>
     <ul>
         <li><span class="parameter">params</span>
             <span class="types"><span class="type">...</span></span>
@@ -182,7 +183,7 @@ core.register_node(&quot;mymod:walkable_node&quot;, {
 
 
 
-    <h3>See also:</h3>
+    <em>See also</em>
     <ul>
          <a href="../modules/node_on_player_walk.lua.html#params">params</a>
     </ul>
@@ -190,6 +191,7 @@ core.register_node(&quot;mymod:walkable_node&quot;, {
 
 </dd>
     <dt>
+    <hr/>
     <a href="#on_player_walk_leave" name = "on_player_walk_leave">#</a>
     <strong>on_player_walk_leave (params)</strong>
     </dt>
@@ -197,7 +199,7 @@ core.register_node(&quot;mymod:walkable_node&quot;, {
     Called when the player walks out of the current node.
 
 
-    <h3>Parameters:</h3>
+    <h3>Parameters</h3>
     <ul>
         <li><span class="parameter">params</span>
             <span class="types"><span class="type">...</span></span>
@@ -209,7 +211,7 @@ core.register_node(&quot;mymod:walkable_node&quot;, {
 
 
 
-    <h3>See also:</h3>
+    <em>See also</em>
     <ul>
          <a href="../modules/node_on_player_walk.lua.html#params">params</a>
     </ul>
@@ -217,11 +219,11 @@ core.register_node(&quot;mymod:walkable_node&quot;, {
 
 </dd>
 </dl>
-    <hr/>
     <h2 class="section-header "><a name="Parameters"></a>Parameters </h2>
 
     <dl class="function">
     <dt>
+    <hr/>
     <a href="#params" name = "params">#</a>
     <strong>params (pos, player, node)</strong>
     </dt>
@@ -229,7 +231,7 @@ core.register_node(&quot;mymod:walkable_node&quot;, {
     Both the enter and leave have the following function signature.
 
 
-    <h3>Parameters:</h3>
+    <h3>Parameters</h3>
     <ul>
         <li><span class="parameter">pos</span>
             <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>

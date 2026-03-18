@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+
         .parameter {
             color: var(--code);
         }
@@ -28,6 +29,7 @@
         h1,h2,h3,h4 {
             margin-top: 1em;
             margin-bottom: 0.1em;
+            color: var(--border)
         }
 
         #content strong, #content a[name] {
@@ -38,7 +40,7 @@
             font-size: 1.85rem;
         }
 
-        #content .function a {
+        #content .function dt a {
             text-decoration: none;
             opacity: 0.5;
         }
@@ -78,11 +80,11 @@
 
 <div id="navigation">
 
-<h1>
+<p>
 <a class="home" href="../index.html">
 luanti_utils
 </a>
-</h1>
+</p>
 
 <details>
 <summary>Navigation</summary>
@@ -137,23 +139,22 @@ luanti_utils
     <li><a href="#luanti_utils">luanti_utils</a></li>
 </ul>
 
-<hr/>
-
 </div>
 
 <div id="content">
 
 <h1>Module <code>init.lua</code></h1>
+<p><a href="https://github.com/bas080/luanti_utils/blob/master/init.lua">📑 Source</a></p>
 <p>Luanti init.lua for <a href="../modules/init.lua.html#luanti_utils">luanti_utils</a>.</p>
 <p> Defines a global named luanti_utils with the following:</p>
 
 
 
-    <hr/>
     <h2 class="section-header "><a name="Functions"></a>Functions</h2>
 
     <dl class="function">
     <dt>
+    <hr/>
     <a href="#luanti_utils.dofile" name = "luanti_utils.dofile">#</a>
     <strong>luanti_utils.dofile (module)</strong>
     </dt>
@@ -165,7 +166,7 @@ luanti_utils
  specifying the full path manually.
 
 
-    <h3>Parameters:</h3>
+    <h3>Parameters</h3>
     <ul>
         <li><span class="parameter">module</span>
             <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
@@ -173,7 +174,7 @@ luanti_utils
         </li>
     </ul>
 
-    <h3>Returns:</h3>
+    <h3>Returns</h3>
     <ol>
 
            <span class="types"><span class="type">any</span></span>
@@ -190,11 +191,11 @@ luanti_utils
 
 </dd>
 </dl>
-    <hr/>
     <h2 class="section-header "><a name="Tables"></a>Tables</h2>
 
     <dl class="function">
     <dt>
+    <hr/>
     <a href="#luanti_utils" name = "luanti_utils">#</a>
     <strong>luanti_utils</strong>
     </dt>

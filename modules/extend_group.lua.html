@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+
         .parameter {
             color: var(--code);
         }
@@ -28,6 +29,7 @@
         h1,h2,h3,h4 {
             margin-top: 1em;
             margin-bottom: 0.1em;
+            color: var(--border)
         }
 
         #content strong, #content a[name] {
@@ -38,7 +40,7 @@
             font-size: 1.85rem;
         }
 
-        #content .function a {
+        #content .function dt a {
             text-decoration: none;
             opacity: 0.5;
         }
@@ -78,11 +80,11 @@
 
 <div id="navigation">
 
-<h1>
+<p>
 <a class="home" href="../index.html">
 luanti_utils
 </a>
-</h1>
+</p>
 
 <details>
 <summary>Navigation</summary>
@@ -133,23 +135,22 @@ luanti_utils
     <li><a href="#returns...">returns... (group_name, extend_def[, items])</a></li>
 </ul>
 
-<hr/>
-
 </div>
 
 <div id="content">
 
 <h1>Module <code>extend_group.lua</code></h1>
+<p><a href="https://github.com/bas080/luanti_utils/blob/master/extend_group.lua">📑 Source</a></p>
 <p>Extend callbacks for all nodes in a specific group.</p>
 <p> Iterates over items and applies <code>extend_item</code> to
  every node belonging to the given group.</p>
 
 <p> Uses <a href="https://github.com/luanti-org/luanti/blob/5932c174022a0cd1c4a1f8c657694fea2fce5161/doc/lua_api.md?plain=1#L6106">core.override</a>.</p>
-    <h3>See also:</h3>
+    <em>See also</em>
     <ul>
          <a href="../modules/extend_item.lua.html#">extend_item.lua</a>
     </ul>
-    <h3>Usage:</h3>
+    <h3>Usage</h3>
         <pre class="example">extend_group(&quot;leaves&quot;, {
   after_destruct = function(next, pos, old_node)
     minetest.remove_node(pos)
@@ -167,11 +168,11 @@ extend_group(&quot;leaves&quot;, function() end, core.registered_nodes)
 
 
 
-    <hr/>
     <h2 class="section-header "><a name="Functions"></a>Functions</h2>
 
     <dl class="function">
     <dt>
+    <hr/>
     <a href="#returns..." name = "returns...">#</a>
     <strong>returns... (group_name, extend_def[, items])</strong>
     </dt>
@@ -181,7 +182,7 @@ extend_group(&quot;leaves&quot;, function() end, core.registered_nodes)
 
 
 
-    <h3>Parameters:</h3>
+    <h3>Parameters</h3>
     <ul>
         <li><span class="parameter">group_name</span>
             <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>

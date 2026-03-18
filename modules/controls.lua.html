@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+
         .parameter {
             color: var(--code);
         }
@@ -28,6 +29,7 @@
         h1,h2,h3,h4 {
             margin-top: 1em;
             margin-bottom: 0.1em;
+            color: var(--border)
         }
 
         #content strong, #content a[name] {
@@ -38,7 +40,7 @@
             font-size: 1.85rem;
         }
 
-        #content .function a {
+        #content .function dt a {
             text-decoration: none;
             opacity: 0.5;
         }
@@ -78,11 +80,11 @@
 
 <div id="navigation">
 
-<h1>
+<p>
 <a class="home" href="../index.html">
 luanti_utils
 </a>
-</h1>
+</p>
 
 <details>
 <summary>Navigation</summary>
@@ -139,16 +141,15 @@ luanti_utils
     <li><a href="#controls">controls</a></li>
 </ul>
 
-<hr/>
-
 </div>
 
 <div id="content">
 
 <h1>Module <code>controls.lua</code></h1>
+<p><a href="https://github.com/bas080/luanti_utils/blob/master/controls.lua">📑 Source</a></p>
 <p>This module simply returns the controls mod as is.</p>
 <p> <a href="https://content.luanti.org/packages/mt-mods/controls/">https://content.luanti.org/packages/mt-mods/controls/</a></p>
-    <h3>Usage:</h3>
+    <h3>Usage</h3>
         <pre class="example">local controls = luanti_utils.dofile(&apos;controls.lua&apos;)
 
 controls.register_on_press(function(player, key)
@@ -174,11 +175,11 @@ end)
 
 
 
-    <hr/>
     <h2 class="section-header "><a name="Functions"></a>Functions</h2>
 
     <dl class="function">
     <dt>
+    <hr/>
     <a href="#controls.register_on_press" name = "controls.register_on_press">#</a>
     <strong>controls.register_on_press (player, key)</strong>
     </dt>
@@ -188,7 +189,7 @@ end)
 
 
 
-    <h3>Parameters:</h3>
+    <h3>Parameters</h3>
     <ul>
         <li><span class="parameter">player</span>
             <span class="types"><span class="type">core.player</span></span>
@@ -210,6 +211,7 @@ end)
 
 </dd>
     <dt>
+    <hr/>
     <a href="#controls.register_on_hold" name = "controls.register_on_hold">#</a>
     <strong>controls.register_on_hold (player, key, length)</strong>
     </dt>
@@ -219,7 +221,7 @@ end)
 
 
 
-    <h3>Parameters:</h3>
+    <h3>Parameters</h3>
     <ul>
         <li><span class="parameter">player</span>
             <span class="types"><span class="type">core.player</span></span>
@@ -247,6 +249,7 @@ end)
 
 </dd>
     <dt>
+    <hr/>
     <a href="#controls.register_on_release" name = "controls.register_on_release">#</a>
     <strong>controls.register_on_release (player, key, length)</strong>
     </dt>
@@ -256,7 +259,7 @@ end)
 
 
 
-    <h3>Parameters:</h3>
+    <h3>Parameters</h3>
     <ul>
         <li><span class="parameter">player</span>
             <span class="types"><span class="type">core.player</span></span>
@@ -284,11 +287,11 @@ end)
 
 </dd>
 </dl>
-    <hr/>
     <h2 class="section-header "><a name="Tables"></a>Tables</h2>
 
     <dl class="function">
     <dt>
+    <hr/>
     <a href="#controls" name = "controls">#</a>
     <strong>controls</strong>
     </dt>
@@ -296,7 +299,7 @@ end)
     Module table
 
 
-    <h3>Fields:</h3>
+    <h3>Fields</h3>
     <ul>
         <li><span class="parameter">register_on_press</span>
             <span class="types"><span class="type">controls.register_on_press</span></span>
