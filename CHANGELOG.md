@@ -1,5 +1,12 @@
 # Changelog
 
+# 0.0.4:
+
+- Added `is_buildable_to.lua` to check if a node or position can be built on.
+- Added `register_decoration.lua` for easier decoration registration with gennotify callbacks.
+- Added caching to `luanti_utils.dofile` to avoid loading the same module multiple times.
+- Updated documentation setup: moved `favicon.png`, added `ldoc.ltp` template for docs.
+- Fixed minor corrections in `register_node_copy.lua` comments and function signature.
 
 ## 0.0.3
 
