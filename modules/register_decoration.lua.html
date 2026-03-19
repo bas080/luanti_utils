@@ -136,7 +136,11 @@ luanti_utils
 </ul>
 <h2>Tables</h2>
 <ul class="nowrap">
-    <li><a href="#DecorationDef">DecorationDef</a></li>
+    <li><a href="#decorationDef">decorationDef</a></li>
+</ul>
+<h2>Callbacks </h2>
+<ul class="nowrap">
+    <li><a href="#onPosition">onPosition (position)</a></li>
 </ul>
 
 </div>
@@ -183,7 +187,7 @@ luanti_utils
     <h3>Parameters</h3>
     <ul>
         <li><span class="parameter">decoration_def</span>
-            <span class="types"><a class="type" href="../modules/register_decoration.lua.html#DecorationDef">DecorationDef</a></span>
+            <span class="types"><a class="type" href="../modules/register_decoration.lua.html#decorationDef">decorationDef</a></span>
 
 
 
@@ -207,20 +211,48 @@ luanti_utils
     <dl class="function">
     <dt>
     <hr/>
-    <a href="#DecorationDef" name = "DecorationDef">#</a>
-    <strong>DecorationDef</strong>
+    <a href="#decorationDef" name = "decorationDef">#</a>
+    <strong>decorationDef</strong>
     </dt>
     <dd>
-    DecorationDef
+    decorationDef
  Includes all core.decoration_definition parameters and extends them.
 
 
     <h3>Fields</h3>
     <ul>
         <li><span class="parameter">on_position</span>
-            <span class="types"><span class="type">function</span></span>
+            <span class="types"><a class="type" href="../modules/register_decoration.lua.html#onPosition">onPosition</a></span>
          Callback called with each selected position
          (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Callbacks"></a>Callbacks </h2>
+
+    <dl class="function">
+    <dt>
+    <hr/>
+    <a href="#onPosition" name = "onPosition">#</a>
+    <strong>onPosition (position)</strong>
+    </dt>
+    <dd>
+    onPosition
+
+
+    <h3>Parameters</h3>
+    <ul>
+        <li><span class="parameter">position</span>
+            <span class="types"><span class="type">core.vector</span></span>
+
+
+
         </li>
     </ul>
 
