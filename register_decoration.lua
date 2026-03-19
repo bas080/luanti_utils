@@ -17,14 +17,22 @@
 --     end
 -- })
 --
--- @tparam DecorationDef decoration_def
+-- @tparam decorationDef decoration_def
 -- @treturn integer decoration_id The same value returned by `core.register_decoration`.
 
---- DecorationDef
+--- decorationDef
 -- Includes all core.decoration_definition parameters and extends them.
 --
--- @table DecorationDef
--- @tfield[opt] function on_position Callback called with each selected position
+-- @table decorationDef
+-- @tfield[opt] onPosition on_position Callback called with each selected position
+
+--- Callbacks
+-- @section Callbacks
+
+--- onPosition
+-- @function onPosition
+--
+-- @tparam core.vector position
 
 local _decoration_callbacks = {}
 local _pending_defs = {}
