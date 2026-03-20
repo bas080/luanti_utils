@@ -97,7 +97,7 @@ luanti_utils
 <ul class="nowrap">
   <li><a href="../modules/controls.lua.html">controls.lua</a></li>
   <li><a href="../modules/debounce.lua.html">debounce.lua</a></li>
-  <li><a href="../modules/deferred_batch.lua.html">deferred_batch.lua</a></li>
+  <li><strong>deferred_batch.lua</strong></li>
   <li><a href="../modules/emerge_node.lua.html">emerge_node.lua</a></li>
   <li><a href="../modules/extend_function.lua.html">extend_function.lua</a></li>
   <li><a href="../modules/extend_group.lua.html">extend_group.lua</a></li>
@@ -108,7 +108,7 @@ luanti_utils
   <li><a href="../modules/migrate_node.lua.html">migrate_node.lua</a></li>
   <li><a href="../modules/modify_texture.lua.html">modify_texture.lua</a></li>
   <li><a href="../modules/node_on_player_walk.lua.html">node_on_player_walk.lua</a></li>
-  <li><strong>noop.lua</strong></li>
+  <li><a href="../modules/noop.lua.html">noop.lua</a></li>
   <li><a href="../modules/on_server_idle.lua.html">on_server_idle.lua</a></li>
   <li><a href="../modules/on_server_idle_each.lua.html">on_server_idle_each.lua</a></li>
   <li><a href="../modules/on_server_idle_filter.lua.html">on_server_idle_filter.lua</a></li>
@@ -135,19 +135,42 @@ luanti_utils
 <ul class="nowrap">
     <li><a href="#returns...">returns... ()</a></li>
 </ul>
+<h2>deferredBatch </h2>
+<ul class="nowrap">
+    <li><a href="#deferredBatch">deferredBatch</a></li>
+</ul>
 
 </div>
 
 <div id="content">
 
-<h1>Module <code>noop.lua</code></h1>
-<p><a href="https://github.com/bas080/luanti_utils/blob/master/noop.lua">📑 Source</a></p>
-<p>A function that does nothing.</p>
-<p>
-
-</p>
+<h1>Module <code>deferred_batch.lua</code></h1>
+<p><a href="https://github.com/bas080/luanti_utils/blob/master/deferred_batch.lua">📑 Source</a></p>
+<p>deferred_batch
+ Creates a batch-style deferred handler for multiple asynchronous tasks.</p>
+<p> Provides per-task and all-tasks completion callbacks with result tracking.</p>
     <h3>Usage</h3>
-        <pre class="example">noop() --&gt; nill
+        <pre class="example">local batch = deferred_batch()
+
+-- Add async tasks
+batch.add(function(done)
+    -- simulate async work
+    done(&quot;result 1&quot;)
+end)
+
+batch.add(function(done)
+    done(&quot;result 2&quot;)
+end)
+
+-- Per-task callback
+batch.on_item_done(function(value, index)
+    print(&quot;Task&quot;, index, &quot;finished with&quot;, value)
+end)
+
+-- All-tasks callback
+batch.on_all_done(function(results)
+    print(&quot;All tasks completed. Results:&quot;, table.concat(results, &quot;, &quot;))
+end)
 </pre>
 
 
@@ -170,8 +193,54 @@ luanti_utils
     <h3>Returns</h3>
     <ol>
 
-        nil Returns a nil
+           <span class="types"><a class="type" href="../modules/deferred_batch.lua.html#deferredBatch">deferredBatch</a></span>
+        A deferred batch table.
     </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="deferredBatch"></a>deferredBatch </h2>
+
+    <dl class="function">
+    <dt>
+    <hr/>
+    <a href="#deferredBatch" name = "deferredBatch">#</a>
+    <strong>deferredBatch</strong>
+    </dt>
+    <dd>
+
+
+
+
+
+    <h3>Fields</h3>
+    <ul>
+        <li><span class="parameter">add</span>
+            <span class="types"><span class="type">function</span></span>
+         Adds new asynchronous task.
+        </li>
+        <li><span class="parameter">on_item_done</span>
+            <span class="types"><span class="type">function</span></span>
+         Registers a callback <code>cb(value, index)</code> that
+   is invoked each time a task completes successfully. <code>index</code> corresponds to
+   the order in which tasks were added.
+        </li>
+        <li><span class="parameter">on_all_done</span>
+            <span class="types"><span class="type">function</span></span>
+         Registers a callback <code>cb(results)</code> that is
+   invoked once after all tasks have completed. If the batch is already finished,
+   the callback is invoked immediately.
+        </li>
+        <li><span class="parameter">is_done</span>
+            <span class="types"><span class="type">boolean</span></span>
+         Indicates whether all tasks have completed. True only
+   after all tasks have finished.
+        </li>
+    </ul>
+
 
 
 
