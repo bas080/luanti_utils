@@ -44,7 +44,7 @@ core.register_globalstep(function(dtime)
 
     local jobs_to_run = math.max(1, math.floor(budget / AVG_JOB_TIME))
 
-    for _ = 1, jobs_to_run do
+    for _ = 1, math.min(jobs_to_run, queue.size()) do
         -- Could have no jobs
         local fn = queue.pop()
 
