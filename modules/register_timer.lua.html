@@ -116,11 +116,11 @@ luanti_utils
   <li><a href="../modules/on_server_idle_reduce.lua.html">on_server_idle_reduce.lua</a></li>
   <li><a href="../modules/persistent_queue.lua.html">persistent_queue.lua</a></li>
   <li><a href="../modules/queue.lua.html">queue.lua</a></li>
-  <li><strong>random_vector_direction.lua</strong></li>
+  <li><a href="../modules/random_vector_direction.lua.html">random_vector_direction.lua</a></li>
   <li><a href="../modules/register_decoration.lua.html">register_decoration.lua</a></li>
   <li><a href="../modules/register_node_copy.lua.html">register_node_copy.lua</a></li>
   <li><a href="../modules/register_on_player_walk.lua.html">register_on_player_walk.lua</a></li>
-  <li><a href="../modules/register_timer.lua.html">register_timer.lua</a></li>
+  <li><strong>register_timer.lua</strong></li>
   <li><a href="../modules/table_lookup.lua.html">table_lookup.lua</a></li>
   <li><a href="../modules/table_merge.lua.html">table_merge.lua</a></li>
   <li><a href="../modules/wallmounted_to_facedir.lua.html">wallmounted_to_facedir.lua</a></li>
@@ -138,13 +138,29 @@ luanti_utils
 
 <div id="content">
 
-<h1>Module <code>random_vector_direction.lua</code></h1>
-<p><a href="https://github.com/bas080/luanti_utils/blob/master/random_vector_direction.lua">📑 Source</a></p>
-<p>random<em>vector</em>direction
- Compatibility issue I ran into.</p>
+<h1>Module <code>register_timer.lua</code></h1>
+<p><a href="https://github.com/bas080/luanti_utils/blob/master/register_timer.lua">📑 Source</a></p>
 <p>
 
 </p>
+<p>
+
+</p>
+    <em>See also</em>
+    <ul>
+    </ul>
+    <h3>Usage</h3>
+        <pre class="example">local after = register_timer({
+  name = &quot;hello&quot;,
+  action = function(name)
+    print(&quot;Hello &quot; .. name)
+  end
+})
+
+local cancel = after(5 &quot;world&quot;)
+
+cancel()
+</pre>
 
 
 
