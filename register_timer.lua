@@ -1,0 +1,17 @@
+---
+-- @module register_timer.lua
+--
+-- @usage
+-- local after = register_timer({
+--   name = "hello",
+--   action = function(name)
+--     print("Hello " .. name)
+--   end
+-- })
+--
+-- local cancel = after(5 "world")
+--
+-- cancel()
+--
+-- @see https://github.com/bas080/register_timer
+return dofile(core.get_modpath('register_timer')..'/init.lua')
