@@ -10,7 +10,7 @@ High level [Luanti][Luanti] lua modding utilities that will bring your mods to t
 
 ## Documentation
 
-You start by aquiring a module. See [luanti_utils.dofile][dofile]
+You start by aquiring a module.
 
 ```lua
 local util = luanti_utils.dofile('<luanti_util>.lua')
