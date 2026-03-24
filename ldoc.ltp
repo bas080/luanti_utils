@@ -36,8 +36,6 @@
             color: var(--code);
             font-family: monospace;
             margin-top: 1em;
-
-            font-size: 1.85rem;
         }
 
         #content .function dt a {
@@ -86,13 +84,14 @@
 
 <div id="navigation">
 
-<p>
+<h1>
 <a class="home" href="../$(ldoc.output).html">
 $(ldoc.project)
 </a>
-</p>
+</h1>
 
 <details>
+
 <summary>Navigation</summary>
 
 # if ldoc.icon_basename then
