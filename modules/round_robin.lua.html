@@ -108,7 +108,7 @@ luanti_utils
   <li><a href="../modules/migrate_node.lua.html">migrate_node.lua</a></li>
   <li><a href="../modules/modify_texture.lua.html">modify_texture.lua</a></li>
   <li><a href="../modules/node_on_player_walk.lua.html">node_on_player_walk.lua</a></li>
-  <li><strong>noop.lua</strong></li>
+  <li><a href="../modules/noop.lua.html">noop.lua</a></li>
   <li><a href="../modules/on_server_idle.lua.html">on_server_idle.lua</a></li>
   <li><a href="../modules/on_server_idle_each.lua.html">on_server_idle_each.lua</a></li>
   <li><a href="../modules/on_server_idle_filter.lua.html">on_server_idle_filter.lua</a></li>
@@ -121,7 +121,7 @@ luanti_utils
   <li><a href="../modules/register_node_copy.lua.html">register_node_copy.lua</a></li>
   <li><a href="../modules/register_on_player_walk.lua.html">register_on_player_walk.lua</a></li>
   <li><a href="../modules/register_timer.lua.html">register_timer.lua</a></li>
-  <li><a href="../modules/round_robin.lua.html">round_robin.lua</a></li>
+  <li><strong>round_robin.lua</strong></li>
   <li><a href="../modules/table_lookup.lua.html">table_lookup.lua</a></li>
   <li><a href="../modules/table_merge.lua.html">table_merge.lua</a></li>
   <li><a href="../modules/wallmounted_to_facedir.lua.html">wallmounted_to_facedir.lua</a></li>
@@ -136,22 +136,24 @@ luanti_utils
 
 <h2>Functions</h2>
 <ul class="nowrap">
-    <li><a href="#returns...">returns... ()</a></li>
+    <li><a href="#returns...">returns... (items_fn, on_item)</a></li>
 </ul>
 
 </div>
 
 <div id="content">
 
-<h1>Module <code>noop.lua</code></h1>
-<p><a href="https://github.com/bas080/luanti_utils/blob/master/noop.lua">📑 Source</a></p>
-<p>A function that does nothing.</p>
-<p>
+<h1>Module <code>round_robin.lua</code></h1>
+<p><a href="https://github.com/bas080/luanti_utils/blob/master/round_robin.lua">📑 Source</a></p>
+<p>Round Robin</p>
 
-</p>
-    <h3>Usage</h3>
-        <pre class="example">noop() --&gt; nill
-</pre>
+<p> Iterate util that allows creating loops that have a low memory footprint.</p>
+<p> This can replace continious loops on f.e. connected players.
+ </p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>Author</strong>: bas080</li>
+    </ul>
 
 
 
@@ -161,7 +163,7 @@ luanti_utils
     <dt>
     <hr/>
     <a href="#returns..." name = "returns...">#</a>
-    <strong>returns... ()</strong>
+    <strong>returns... (items_fn, on_item)</strong>
     </dt>
     <dd>
 
@@ -169,11 +171,29 @@ luanti_utils
 
 
 
+    <h3>Parameters</h3>
+    <ul>
+        <li><span class="parameter">items_fn</span>
+            <span class="types"><span class="type">function</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">on_item</span>
+            <span class="types"><span class="type">function</span></span>
+
+
+
+        </li>
+    </ul>
 
     <h3>Returns</h3>
     <ol>
 
-        nil Returns a nil
+           <span class="types"><span class="type">RoundRobin</span></span>
+
+
+
     </ol>
 
 
