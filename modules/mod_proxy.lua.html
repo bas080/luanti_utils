@@ -105,7 +105,7 @@ luanti_utils
   <li><a href="../modules/is_buildable_to.lua.html">is_buildable_to.lua</a></li>
   <li><a href="../modules/migrate_inventory.lua.html">migrate_inventory.lua</a></li>
   <li><a href="../modules/migrate_node.lua.html">migrate_node.lua</a></li>
-  <li><a href="../modules/mod_proxy.lua.html">mod_proxy.lua</a></li>
+  <li><strong>mod_proxy.lua</strong></li>
   <li><a href="../modules/modify_texture.lua.html">modify_texture.lua</a></li>
   <li><a href="../modules/node_on_player_walk.lua.html">node_on_player_walk.lua</a></li>
   <li><a href="../modules/noop.lua.html">noop.lua</a></li>
@@ -122,7 +122,7 @@ luanti_utils
   <li><a href="../modules/register_on_player_walk.lua.html">register_on_player_walk.lua</a></li>
   <li><a href="../modules/register_timer.lua.html">register_timer.lua</a></li>
   <li><a href="../modules/round_robin.lua.html">round_robin.lua</a></li>
-  <li><strong>table_lookup.lua</strong></li>
+  <li><a href="../modules/table_lookup.lua.html">table_lookup.lua</a></li>
   <li><a href="../modules/table_merge.lua.html">table_merge.lua</a></li>
   <li><a href="../modules/wallmounted_to_facedir.lua.html">wallmounted_to_facedir.lua</a></li>
 </ul>
@@ -136,30 +136,19 @@ luanti_utils
 
 <h2>Functions</h2>
 <ul class="nowrap">
-    <li><a href="#returns...">returns... (tbl)</a></li>
-    <li><a href="#by_key">by_key (key)</a></li>
-    <li><a href="#by_value">by_value (value)</a></li>
+    <li><a href="#returns...">returns... (modname)</a></li>
 </ul>
 
 </div>
 
 <div id="content">
 
-<h1>Module <code>table_lookup.lua</code></h1>
-<p><a href="https://github.com/bas080/luanti_utils/blob/master/table_lookup.lua">📑 Source</a></p>
-<p>Get values by key or value.</p>
+<h1>Module <code>mod_proxy.lua</code></h1>
+<p><a href="https://github.com/bas080/luanti_utils/blob/master/mod_proxy.lua">📑 Source</a></p>
+<p>Better feedback when mod does not exist or is not enabled.</p>
 <p>
 
 </p>
-    <h3>Usage</h3>
-        <pre class="example">local by_key, by_value = table_lookup({
-  &quot;red&quot; = &quot;wool:red&quot;,
-  &quot;blue&quot; = &quot;wool:blue&quot;,
-})
-
-by_key(&quot;red&quot;) -- &quot;wool:red&quot;
-by_value(&quot;wool:blue&quot;) -- &quot;blue&quot;
-</pre>
 
 
 
@@ -169,7 +158,7 @@ by_value(&quot;wool:blue&quot;) -- &quot;blue&quot;
     <dt>
     <hr/>
     <a href="#returns..." name = "returns...">#</a>
-    <strong>returns... (tbl)</strong>
+    <strong>returns... (modname)</strong>
     </dt>
     <dd>
 
@@ -179,87 +168,14 @@ by_value(&quot;wool:blue&quot;) -- &quot;blue&quot;
 
     <h3>Parameters</h3>
     <ul>
-        <li><span class="parameter">tbl</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+        <li><span class="parameter">modname</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
 
 
 
         </li>
     </ul>
 
-    <h3>Returns</h3>
-    <ol>
-        <li>
-           <span class="types"><span class="type">function</span></span>
-        by_key</li>
-        <li>
-           <span class="types"><span class="type">function</span></span>
-        by_value</li>
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <hr/>
-    <a href="#by_key" name = "by_key">#</a>
-    <strong>by_key (key)</strong>
-    </dt>
-    <dd>
-    Lookup value by key
-
-
-    <h3>Parameters</h3>
-    <ul>
-        <li><span class="parameter">key</span>
-            <span class="types"><span class="type">any</span></span>
-
-
-
-        </li>
-    </ul>
-
-    <h3>Returns</h3>
-    <ol>
-
-           <span class="types"><span class="type">any</span></span>
-
-
-
-    </ol>
-
-
-
-
-</dd>
-    <dt>
-    <hr/>
-    <a href="#by_value" name = "by_value">#</a>
-    <strong>by_value (value)</strong>
-    </dt>
-    <dd>
-    Lookup key by value
-
-
-    <h3>Parameters</h3>
-    <ul>
-        <li><span class="parameter">value</span>
-            <span class="types"><span class="type">any</span></span>
-
-
-
-        </li>
-    </ul>
-
-    <h3>Returns</h3>
-    <ol>
-
-           <span class="types"><span class="type">any</span></span>
-
-
-
-    </ol>
 
 
 
