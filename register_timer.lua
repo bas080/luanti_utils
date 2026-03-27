@@ -14,4 +14,7 @@
 -- cancel()
 --
 -- @see https://github.com/bas080/register_timer
-return dofile(core.get_modpath('register_timer')..'/init.lua')
+
+local mod_proxy = luanti_utils.dofile('mod_proxy.lua')
+
+return mod_proxy('register_timer')
