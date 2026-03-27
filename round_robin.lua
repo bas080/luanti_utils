@@ -1,12 +1,10 @@
---- Round Robin
+-- # Round Robin
 --
 -- Iterate util that allows creating loops that have a low memory footprint.
 -- This can replace continious loops on f.e. connected players.
--- 
--- @author bas080
 --
+-- @author bas080
 -- @module round_robin.lua
--- 
 -- @tparam function items_fn
 -- @tparam function on_item
 -- @treturn RoundRobin
@@ -23,6 +21,7 @@ local function round_robin(items_fn, on_item)
     local function process_next()
         if paused then return end
 
+        print('paused ' .. dump(paused))
         if index > #items then
             prev_items = items
             items = items_fn(prev_items) or {}
@@ -43,11 +42,15 @@ local function round_robin(items_fn, on_item)
             process_next()
         end
 
-        on_item(item, done)
+        on_item(done, item)
     end
 
     function self:start()
+        print('called')
         paused = false
+        items = items_fn()
+        
+        print('keep going')
         process_next()
     end
 
@@ -74,4 +77,4 @@ local function round_robin(items_fn, on_item)
     return self
 end
 
-return on_server_idle_round_robin
+return round_robin
