@@ -24,11 +24,34 @@ local dofile_cache = {}
 -- local extend_item = luanti_utils.dofile("extend_item.lua")
 -- local extend_group = luanti_utils.dofile("extend_group.lua")
 function luanti_utils.dofile(module)
-    if dofile_cache[module] then
-        return dofile_cache[module]
-    end
+	if dofile_cache[module] then
+		return dofile_cache[module]
+	end
 
-    dofile_cache[module] = dofile(modpath .. "/" .. module)
+	local value = dofile(modpath .. "/" .. module)
 
-    return dofile_cache[module]
+	if not luanti_utils._nocache then
+		dofile_cache[module] = value
+	end
+
+	luanti_utils._nocache = false
+
+	return value
+end
+
+luanti_utils._nocache = false
+
+---
+--
+-- A function that is called in luanti_util modules that should not cache.
+--
+-- By default luanti\_utils modules are cached which is unusual for a dofile but
+-- a pretty handy default when writing modules. For the user of luanti\_utils it
+-- does not matter. Only for luanti_utils developers it's important to know.
+--
+-- @function luanti_utils.nocache
+--
+-- @see debug.lua
+function luanti_utils.nocache()
+	luanti_utils._nocache = true
 end
