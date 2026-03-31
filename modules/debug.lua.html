@@ -96,6 +96,7 @@ luanti_utils
 <ul class="nowrap">
   <li><a href="../modules/controls.lua.html">controls.lua</a></li>
   <li><a href="../modules/debounce.lua.html">debounce.lua</a></li>
+  <li><strong>debug.lua</strong></li>
   <li><a href="../modules/deferred_batch.lua.html">deferred_batch.lua</a></li>
   <li><a href="../modules/emerge_node.lua.html">emerge_node.lua</a></li>
   <li><a href="../modules/extend_function.lua.html">extend_function.lua</a></li>
@@ -121,7 +122,6 @@ luanti_utils
   <li><a href="../modules/register_node_copy.lua.html">register_node_copy.lua</a></li>
   <li><a href="../modules/register_on_player_walk.lua.html">register_on_player_walk.lua</a></li>
   <li><a href="../modules/register_timer.lua.html">register_timer.lua</a></li>
-  <li><strong>round_robin.lua</strong></li>
   <li><a href="../modules/table_lookup.lua.html">table_lookup.lua</a></li>
   <li><a href="../modules/table_merge.lua.html">table_merge.lua</a></li>
   <li><a href="../modules/wallmounted_to_facedir.lua.html">wallmounted_to_facedir.lua</a></li>
@@ -136,24 +136,21 @@ luanti_utils
 
 <h2>Functions</h2>
 <ul class="nowrap">
-    <li><a href="#returns...">returns... (items_fn, on_item)</a></li>
+    <li><a href="#returns...">returns... (...)</a></li>
 </ul>
 
 </div>
 
 <div id="content">
 
-<h1>Module <code>round_robin.lua</code></h1>
-<p><a href="https://github.com/bas080/luanti_utils/blob/master/round_robin.lua">📑 Source</a></p>
-<p>Round Robin</p>
+<h1>Module <code>debug.lua</code></h1>
+<p><a href="https://github.com/bas080/luanti_utils/blob/master/debug.lua">📑 Source</a></p>
+<p>
 
-<p> Iterate util that allows creating loops that have a low memory footprint.</p>
-<p> This can replace continious loops on f.e. connected players.
- </p>
-    <h3>Info:</h3>
-    <ul>
-        <li><strong>Author</strong>: bas080</li>
-    </ul>
+</p>
+<p>
+
+</p>
 
 
 
@@ -163,7 +160,7 @@ luanti_utils
     <dt>
     <hr/>
     <a href="#returns..." name = "returns...">#</a>
-    <strong>returns... (items_fn, on_item)</strong>
+    <strong>returns... (...)</strong>
     </dt>
     <dd>
 
@@ -173,14 +170,8 @@ luanti_utils
 
     <h3>Parameters</h3>
     <ul>
-        <li><span class="parameter">items_fn</span>
-            <span class="types"><span class="type">function</span></span>
-
-
-
-        </li>
-        <li><span class="parameter">on_item</span>
-            <span class="types"><span class="type">function</span></span>
+        <li><span class="parameter">...</span>
+            <span class="types"><span class="type">any</span></span>
 
 
 
@@ -190,7 +181,7 @@ luanti_utils
     <h3>Returns</h3>
     <ol>
 
-           <span class="types"><span class="type">RoundRobin</span></span>
+           <span class="types"><span class="type">nil</span></span>
 
 
 
