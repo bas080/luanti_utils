@@ -118,9 +118,9 @@ luanti_utils
   <li><a href="../modules/persistent_queue.lua.html">persistent_queue.lua</a></li>
   <li><a href="../modules/queue.lua.html">queue.lua</a></li>
   <li><a href="../modules/random_vector_direction.lua.html">random_vector_direction.lua</a></li>
-  <li><a href="../modules/random_each.lua.html">random_each.lua</a></li>
+  <li><strong>random_each.lua</strong></li>
   <li><a href="../modules/register_decoration.lua.html">register_decoration.lua</a></li>
-  <li><strong>register_node_copy.lua</strong></li>
+  <li><a href="../modules/register_node_copy.lua.html">register_node_copy.lua</a></li>
   <li><a href="../modules/register_on_player_walk.lua.html">register_on_player_walk.lua</a></li>
   <li><a href="../modules/register_timer.lua.html">register_timer.lua</a></li>
   <li><a href="../modules/table_lookup.lua.html">table_lookup.lua</a></li>
@@ -137,28 +137,22 @@ luanti_utils
 
 <h2>Functions</h2>
 <ul class="nowrap">
-    <li><a href="#returns...">returns... (node_name, copied_node_name, define_fn)</a></li>
-</ul>
-<h2>Callbacks </h2>
-<ul class="nowrap">
-    <li><a href="#define">define (copied_node_def)</a></li>
+    <li><a href="#returns...">returns... (items, on_item[, ratio])</a></li>
 </ul>
 
 </div>
 
 <div id="content">
 
-<h1>Module <code>register_node_copy.lua</code></h1>
-<p><a href="https://github.com/bas080/luanti_utils/blob/master/register_node_copy.lua">📑 Source</a></p>
-<p>Re-use existing node definitions and build ontop of them.</p>
-<p> The return value is merged into a copy of the node definition before registering.</p>
+<h1>Module <code>random_each.lua</code></h1>
+<p><a href="https://github.com/bas080/luanti_utils/blob/master/random_each.lua">📑 Source</a></p>
+<p>More efficient loops over random set of items.</p>
+<p> Will NOT contain duplicate picks.</p>
     <h3>Usage</h3>
-        <pre class="example">local register_node_copy = require(&quot;register_node&quot;)
-register_node(&quot;mymod:leaves&quot;, &quot;default:leaves&quot;, function(default_leaves) return {
-    -- Overwrite certain values.
-    description = &quot;Leaf&quot;,
-    tiles = {&quot;mymod_leaves.png&quot;},
-})
+        <pre class="example">local items = {1,2,3}
+
+-- Randomly pick half of the items in the table rounded down.
+random_each(items, on_item, 0.5)
 </pre>
 
 
@@ -169,7 +163,7 @@ register_node(&quot;mymod:leaves&quot;, &quot;default:leaves&quot;, function(def
     <dt>
     <hr/>
     <a href="#returns..." name = "returns...">#</a>
-    <strong>returns... (node_name, copied_node_name, define_fn)</strong>
+    <strong>returns... (items, on_item[, ratio])</strong>
     </dt>
     <dd>
 
@@ -179,55 +173,18 @@ register_node(&quot;mymod:leaves&quot;, &quot;default:leaves&quot;, function(def
 
     <h3>Parameters</h3>
     <ul>
-        <li><span class="parameter">node_name</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
-         Name of the new node.
+        <li><span class="parameter">items</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.5">table</a></span>
+         List of items to randonly pick from.
         </li>
-        <li><span class="parameter">copied_node_name</span>
-            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
-         The name of the node to copy.
+        <li><span class="parameter">on_item</span>
+            <span class="types"><span class="type">function</span></span>
+         Called for each randomly picked item.
         </li>
-        <li><span class="parameter">define_fn</span>
-            <span class="types"><a class="type" href="../modules/register_node_copy.lua.html#define">define</a></span>
-         Callback with arg being the node def that is being copied.
-        </li>
-    </ul>
-
-    <h3>Returns</h3>
-    <ol>
-
-           <span class="types"><span class="type">nil</span></span>
-
-
-
-    </ol>
-
-
-
-
-</dd>
-</dl>
-    <h2 class="section-header "><a name="Callbacks"></a>Callbacks </h2>
-
-    <dl class="function">
-    <dt>
-    <hr/>
-    <a href="#define" name = "define">#</a>
-    <strong>define (copied_node_def)</strong>
-    </dt>
-    <dd>
-
-
-
-
-
-    <h3>Parameters</h3>
-    <ul>
-        <li><span class="parameter">copied_node_def</span>
-            <span class="types"><span class="type">core.node_definition</span></span>
-
-
-
+        <li><span class="parameter">ratio</span>
+            <span class="types"><span class="type">number</span></span>
+         The ratio of items to pick.
+         (<em>optional</em>)
         </li>
     </ul>
 
