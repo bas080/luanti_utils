@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.6
+
+- Fix random_each by setting ratio default.
+
 ## 0.0.5
 
 - Prevent restarting round_robin when calling start
