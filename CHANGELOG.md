@@ -1,6 +1,8 @@
 # Changelog
 
-# 0.0.4:
+## 0.0.5
+
+## 0.0.4
 
 - Added `is_buildable_to.lua` to check if a node or position can be built on.
 - Added `register_decoration.lua` for easier decoration registration with gennotify callbacks.
