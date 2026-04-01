@@ -16,6 +16,7 @@
 local table_shallow_copy = luanti_utils.dofile("table_shallow_copy.lua")
 
 local function random_each(items, on_item, ratio)
+	ratio = ratio or 1
 	items = table_shallow_copy(items)
 	local n = math.min(math.floor(ratio * #items), #items)
 
