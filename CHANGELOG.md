@@ -2,6 +2,26 @@
 
 ## 0.0.5
 
+- Prevent restarting round_robin when calling start
+- Add random_each function to loop over random items
+- Add table_shallow_copy util
+- Add debug utility
+- Allow modules to not be cached with nocache fn call
+- Use mod_proxy for register_timer.lua
+- Change round_robin fn signature for on_item callback
+- Add mod_proxy utility
+- Make strong just normal text silly
+- Add round robin util
+- Remove broken first link to old dofile page
+- Proxy optional depends register_timer
+- Prevent popping more that the queue has
+- Add vector_mod utility
+- Add random dir vector because my version of Luanti does not have it
+- Add deferred_batch helper to sync multiple async things
+- Better document register decoration types and callback
+- Update screenshot
+- Fix code formatting
+
 ## 0.0.4
 
 - Added `is_buildable_to.lua` to check if a node or position can be built on.
