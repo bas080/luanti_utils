@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>luanti_utils API</title>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+        .parameter {
+            color: var(--code);
+        }
+
+        hr {
+            margin-top: 2rem;
+        }
+
+        .home {
+            margin-bottom: 0.5em;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        dd {
+            margin: 0;
+        }
+
+        h1,h2,h3,h4 {
+            margin-top: 1em;
+            margin-bottom: 0.1em;
+            color: var(--border)
+        }
+
+        #content strong, #content a[name] {
+            color: var(--code);
+            font-family: monospace;
+            margin-top: 1em;
+        }
+
+        #content .function dt a {
+            text-decoration: none;
+            opacity: 0.5;
+        }
+        #content .function a:target {
+            opacity: 1;
+            color: var(--marked);
+        }
+
+        ul, ol {
+            list-style: "🧩 ";
+            padding-left: 2rem;
+        }
+
+        footer {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            text-align: center;
+        }
+    </style>
+    <link rel="icon" href="favicon.png" type="image/png" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+
+<h1>
+<a class="home" href="../index.html">
+luanti_utils
+</a>
+</h1>
+
+<details>
+
+<summary>Navigation</summary>
+
+
+
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/controls.lua.html">controls.lua</a></li>
+  <li><a href="../modules/debounce.lua.html">debounce.lua</a></li>
+  <li><a href="../modules/debug.lua.html">debug.lua</a></li>
+  <li><a href="../modules/deferred_batch.lua.html">deferred_batch.lua</a></li>
+  <li><a href="../modules/emerge_node.lua.html">emerge_node.lua</a></li>
+  <li><a href="../modules/extend_function.lua.html">extend_function.lua</a></li>
+  <li><a href="../modules/extend_group.lua.html">extend_group.lua</a></li>
+  <li><a href="../modules/extend_item.lua.html">extend_item.lua</a></li>
+  <li><a href="../modules/init.lua.html">init.lua</a></li>
+  <li><a href="../modules/is_buildable_to.lua.html">is_buildable_to.lua</a></li>
+  <li><a href="../modules/migrate_inventory.lua.html">migrate_inventory.lua</a></li>
+  <li><a href="../modules/migrate_node.lua.html">migrate_node.lua</a></li>
+  <li><a href="../modules/mod_proxy.lua.html">mod_proxy.lua</a></li>
+  <li><a href="../modules/modify_texture.lua.html">modify_texture.lua</a></li>
+  <li><strong>node_matches.lua</strong></li>
+  <li><a href="../modules/node_on_player_walk.lua.html">node_on_player_walk.lua</a></li>
+  <li><a href="../modules/noop.lua.html">noop.lua</a></li>
+  <li><a href="../modules/on_server_idle.lua.html">on_server_idle.lua</a></li>
+  <li><a href="../modules/on_server_idle_each.lua.html">on_server_idle_each.lua</a></li>
+  <li><a href="../modules/on_server_idle_filter.lua.html">on_server_idle_filter.lua</a></li>
+  <li><a href="../modules/on_server_idle_map.lua.html">on_server_idle_map.lua</a></li>
+  <li><a href="../modules/on_server_idle_reduce.lua.html">on_server_idle_reduce.lua</a></li>
+  <li><a href="../modules/persistent_queue.lua.html">persistent_queue.lua</a></li>
+  <li><a href="../modules/queue.lua.html">queue.lua</a></li>
+  <li><a href="../modules/random_vector_direction.lua.html">random_vector_direction.lua</a></li>
+  <li><a href="../modules/random_each.lua.html">random_each.lua</a></li>
+  <li><a href="../modules/register_decoration.lua.html">register_decoration.lua</a></li>
+  <li><a href="../modules/register_node_copy.lua.html">register_node_copy.lua</a></li>
+  <li><a href="../modules/register_on_player_walk.lua.html">register_on_player_walk.lua</a></li>
+  <li><a href="../modules/register_timer.lua.html">register_timer.lua</a></li>
+  <li><a href="../modules/table_lookup.lua.html">table_lookup.lua</a></li>
+  <li><a href="../modules/table_merge.lua.html">table_merge.lua</a></li>
+  <li><a href="../modules/wallmounted_to_facedir.lua.html">wallmounted_to_facedir.lua</a></li>
+</ul>
+<h2>Topics</h2>
+<ul class="">
+  <li><a href="../topics/README.md.html">README</a></li>
+</ul>
+
+</details>
+
+
+<h2>Functions</h2>
+<ul class="nowrap">
+    <li><a href="#returns...">returns... (nodename, nodenames)</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>node_matches.lua</code></h1>
+<p><a href="https://github.com/bas080/luanti_utils/blob/master/node_matches.lua">📑 Source</a></p>
+<p>Predicate to check if a node name is part of a group or matches a name exactly.</p>
+<p>
+
+</p>
+
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <hr/>
+    <a href="#returns..." name = "returns...">#</a>
+    <strong>returns... (nodename, nodenames)</strong>
+    </dt>
+    <dd>
+
+
+
+
+
+    <h3>Parameters</h3>
+    <ul>
+        <li><span class="parameter">nodename</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+        </li>
+        <li><span class="parameter">nodenames</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string[]</a></span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<footer id="about">
+
+
+<p>
+    <span>Powered by </span>
+    <a href="http://github.com/lunarmodules/ldoc">LDoc</a> ·
+    <a href="https://simplecss.org/">simplecss.org</a> ·
+    <a href="https://www.lua.org/">Lua</a> ·
+    <span title="Heart">🫀</span>
+</p>
+
+</footer> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
+
