@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.7
+
+- Add `node_matches` utility.
+
 ## 0.0.6
 
 - Fix random_each by setting ratio default.
