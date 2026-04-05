@@ -2,7 +2,8 @@ name: Generate and Deploy LDoc
 
 on:
   push:
-    branches: [ main, master ]
+    tags:
+      - '*'
 
 jobs:
   build-and-deploy:
