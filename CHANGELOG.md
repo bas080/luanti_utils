@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.8
+
+- Make inventory migration function check if inventory exists before trying a migration.
+
 ## 0.0.7
 
 - Add `node_matches` utility.

@@ -26,6 +26,10 @@ end
 
 -- Run all registered migrations on each stack in an InventoryRef
 local function do_inventory_migration(inv)
+	if not inv then
+		return
+	end
+
     if migrated[inv] then
         return
     end
